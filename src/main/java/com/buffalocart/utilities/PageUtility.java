@@ -65,13 +65,13 @@ public class PageUtility {
 	public void multipleWindowHandling() {
 		
 	}
-	public Boolean isElementDisplayed(WebElement element) {
+	public static Boolean isElementDisplayed(WebElement element) {
 		return element.isDisplayed();
 	}
-	public Boolean isElementEnabled(WebElement element) {
+	public static Boolean isElementEnabled(WebElement element) {
 		return element.isEnabled();
 	}
-	public Boolean isElementSelected(WebElement element) {
+	public static Boolean isElementSelected(WebElement element) {
 		return element.isSelected();
 	}
 	public static String getPageTitle(WebDriver driver) {
