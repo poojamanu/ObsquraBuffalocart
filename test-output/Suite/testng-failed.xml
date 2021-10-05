@@ -4,13 +4,13 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.buffalocart.testscripts.HomeTest">
+      <class name="com.buffalocart.testscripts.ForgotPasswordTest">
         <methods>
-          <include name="verifySignOut"/>
+          <include name="verifyResetPasswordWithInvalidEmailid"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.HomeTest -->
+      </class> <!-- com.buffalocart.testscripts.ForgotPasswordTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

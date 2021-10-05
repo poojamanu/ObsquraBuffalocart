@@ -30,6 +30,10 @@ public class HomePage {
 	@FindBy(xpath = _userMenu)
 	private WebElement userMenu;
 	
+	private final String _endTourButton = "button[class='btn btn-default btn-sm']";
+	@FindBy(css = _endTourButton)
+	private WebElement endTourButton;
+	
 	/*** UserActionMethods ***/
 	
 	public String getUsername() {
@@ -42,6 +46,11 @@ public class HomePage {
 	
 	public String getHomePageTitle() {
 		return PageUtility.getPageTitle(driver);
+	}
+	
+	public void clickEndTourButton() {
+		PageUtility.clickOnElement(endTourButton);
+		
 	}
 	
 	public SignOutPage clickOnUserMenu() {

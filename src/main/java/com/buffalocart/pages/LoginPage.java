@@ -31,6 +31,22 @@ public class LoginPage {
 	@FindBy(css = _loginButton)
 	private WebElement loginButton;
 
+	private final String _invalidLoginMessage = "span.help-block";
+	@FindBy(css = _invalidLoginMessage)
+	private WebElement invalidLoginMessage;
+
+	private final String _checkbox = "//input[@type='checkbox']";
+	@FindBy(xpath = _checkbox)
+	private WebElement rememberMecheckbox;
+	
+	private final String _forgotPassword = "a[class='btn btn-link']";
+	@FindBy(css = _forgotPassword)
+	private WebElement forgotPassword;
+	
+	private final String _panelHeading = "div.panel-heading";
+	@FindBy(css = _panelHeading)
+	private WebElement panelHeading;
+
 	/*** UserActionMethods ***/
 
 	public String getLoginPageTitle() {
@@ -45,8 +61,30 @@ public class LoginPage {
 		PageUtility.enterText(password, pword);
 	}
 
-	public ApplicationTourPage clickOnLoginButton() {
+	public HomePage clickOnLoginButton() {
 		PageUtility.clickOnElement(loginButton);
-		return new ApplicationTourPage(driver);
+		return new HomePage(driver);
 	}
+
+	public String getInvalidLoginMessage() {
+		return PageUtility.getElementText(invalidLoginMessage);
+	}
+
+	public void clickOnCheckbox() {
+		PageUtility.clickOnElement(rememberMecheckbox);
+	}
+
+	public boolean IsCheckboxSelected() {
+		return PageUtility.isElementSelected(rememberMecheckbox);
+	}
+	
+	public ForgotPasswordPage clickOnForgotPasswordLink() {
+		PageUtility.clickOnElement(forgotPassword);
+		return new ForgotPasswordPage(driver);
+	}
+	
+	public String getLoginPanelHeading() {
+		return PageUtility.getElementText(panelHeading);
+	}
+
 }

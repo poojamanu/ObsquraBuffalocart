@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="0" ignored="6" total="7" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="12925" started-at="2021-10-04T22:45:47 IST" finished-at="2021-10-04T22:46:00 IST">
+  <suite name="Suite" duration-ms="14493" started-at="2021-10-05T22:38:45 IST" finished-at="2021-10-05T22:39:00 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="12925" started-at="2021-10-04T22:45:47 IST" finished-at="2021-10-04T22:46:00 IST">
-      <class name="com.buffalocart.testscripts.HomeTest">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.HomeTest@77f99a05]" name="setUp" is-config="true" duration-ms="5815" started-at="2021-10-04T22:45:47 IST" finished-at="2021-10-04T22:45:53 IST">
+    <test name="Test" duration-ms="14493" started-at="2021-10-05T22:38:45 IST" finished-at="2021-10-05T22:39:00 IST">
+      <class name="com.buffalocart.testscripts.ForgotPasswordTest">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.ForgotPasswordTest@1060b431]" name="setUp" is-config="true" duration-ms="8449" started-at="2021-10-05T22:38:45 IST" finished-at="2021-10-05T22:38:54 IST">
           <params>
             <param index="0">
               <value>
@@ -18,22 +18,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifySignOut()[pri:2, instance:com.buffalocart.testscripts.HomeTest@77f99a05]" name="verifySignOut" duration-ms="6965" started-at="2021-10-04T22:45:53 IST" description="TC_007_Verify whether user is navigating to login page by clicking on Sign out button " finished-at="2021-10-04T22:46:00 IST">
+        <test-method status="PASS" signature="verifyResetPasswordWithInvalidEmailid()[pri:5, instance:com.buffalocart.testscripts.ForgotPasswordTest@1060b431]" name="verifyResetPasswordWithInvalidEmailid" duration-ms="5883" started-at="2021-10-05T22:38:54 IST" description="TC_005_Verify error message displyed on  Reset Password page with invalid email id" finished-at="2021-10-05T22:39:00 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySignOut -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.HomeTest@77f99a05]" name="tearDown" is-config="true" duration-ms="95" started-at="2021-10-04T22:46:00 IST" finished-at="2021-10-04T22:46:00 IST">
+        </test-method> <!-- verifyResetPasswordWithInvalidEmailid -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.ForgotPasswordTest@1060b431]" name="tearDown" is-config="true" duration-ms="110" started-at="2021-10-05T22:39:00 IST" finished-at="2021-10-05T22:39:00 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifySignOut status=SUCCESS method=HomeTest.verifySignOut()[pri:2, instance:com.buffalocart.testscripts.HomeTest@77f99a05] output={null}]]]>
+                <![CDATA[[TestResult name=verifyResetPasswordWithInvalidEmailid status=SUCCESS method=ForgotPasswordTest.verifyResetPasswordWithInvalidEmailid()[pri:5, instance:com.buffalocart.testscripts.ForgotPasswordTest@1060b431] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.buffalocart.testscripts.HomeTest -->
+      </class> <!-- com.buffalocart.testscripts.ForgotPasswordTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -7,6 +7,8 @@
       <class name="com.buffalocart.testscripts.LoginTest"/>
       <class name="com.buffalocart.automationcore.Base"/>
       <class name="com.buffalocart.testscripts.HomeTest"/>
+      <class name="com.buffalocart.testscripts.ForgotPasswordTest"/>
+      <class name="com.buffalocart.testscripts.SignOutTest"/>
       
     </classes>
   </test> <!-- Test -->
