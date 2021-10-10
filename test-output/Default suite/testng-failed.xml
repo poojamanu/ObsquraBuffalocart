@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.buffalocart.testscripts.SignOutTest">
+      <class name="com.buffalocart.testscripts.UserManagementTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifyNavigationToLoginOnClickSignOut"/>
+          <include name="verifyUserManagementSubmenus"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.SignOutTest -->
+      </class> <!-- com.buffalocart.testscripts.UserManagementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -67,6 +67,7 @@ public class Base {
 		driver.manage().deleteAllCookies();
 		driver.get(url);
 		driver.manage().timeouts().pageLoadTimeout(WaitUtility.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(WaitUtility.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		
 	}
 

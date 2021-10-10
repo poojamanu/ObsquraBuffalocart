@@ -9,6 +9,13 @@
       <class name="com.buffalocart.testscripts.HomeTest"/>
       <class name="com.buffalocart.testscripts.ForgotPasswordTest"/>
       <class name="com.buffalocart.testscripts.SignOutTest"/>
+      <class name="com.buffalocart.testscripts.UserManagementTest"/>
+      <class name="com.buffalocart.testscripts.UsersTest"/>
+      <class name="com.buffalocart.testscripts.AddUserTest"/>
+      <class name="com.buffalocart.testscripts.RolesTest"/>
+      <class name="com.buffalocart.testscripts.AddRolesTest"/>
+      <class name="com.buffalocart.testscripts.SalesCommissionAgentTest"/>
+      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
       
     </classes>
   </test> <!-- Test -->

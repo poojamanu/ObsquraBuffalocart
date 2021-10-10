@@ -13,7 +13,7 @@ import com.buffalocart.utilities.ExcelUtility;
 public class ForgotPasswordTest extends Base {
 	LoginPage login;
 	ForgotPasswordPage forgotpassword;
-	@Test(description = "TC_005_Verify error message displyed on  Reset Password page with invalid email id", priority = 5, enabled = true)
+	@Test(description = "TC_005_Verify error message displyed on  Reset Password page with invalid email id", priority = 5, enabled = false)
 	public void verifyResetPasswordWithInvalidEmailid() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		forgotpassword = login.clickOnForgotPasswordLink();

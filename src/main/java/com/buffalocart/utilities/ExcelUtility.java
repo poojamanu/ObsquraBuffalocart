@@ -17,14 +17,12 @@ public class ExcelUtility {
 	public static ArrayList<String> getString(String file_path,String sheet) throws IOException {
 		f=new FileInputStream(System.getProperty("user.dir") + file_path );
 		wb = new XSSFWorkbook(f);
-		sh = wb.getSheet(sheet);
+		sh = wb.getSheet(sheet);		
 		ArrayList<String> ExcelRows = new ArrayList<String>();
 		int rowCount = sh.getLastRowNum() - sh.getFirstRowNum();
-		//int columnCount = 1;
-		for (int i = 0; i < rowCount; i++) {
+		for (int i = 0; i <= rowCount; i++) {
 			Row row = sh.getRow(i);
-			int cellCount=row.getLastCellNum();
-			
+			int cellCount=row.getLastCellNum();			
 			for (int j = 0; j < cellCount; j++) {
 				ExcelRows.add(row.getCell(j).getStringCellValue());
 			}

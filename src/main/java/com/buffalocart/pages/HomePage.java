@@ -1,11 +1,16 @@
 package com.buffalocart.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.buffalocart.utilities.DateUtility;
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
 
 public class HomePage {
 	WebDriver driver;
@@ -34,6 +39,16 @@ public class HomePage {
 	@FindBy(css = _endTourButton)
 	private WebElement endTourButton;
 	
+	private final String _sidebar = "ul.sidebar-menu";
+	@FindBy(css = _sidebar)
+	private WebElement sidebar;
+	
+	private final String _date = "//div[@class='m-8 pull-left mt-15 hidden-xs']/strong";
+	@FindBy(xpath = _date)
+	private WebElement date;
+	
+	
+	
 	/*** UserActionMethods ***/
 	
 	public String getUsername() {
@@ -54,9 +69,19 @@ public class HomePage {
 	}
 	
 	public SignOutPage clickOnUserMenu() {
+		//WebDriverWait wait=new WebDriverWait(driver,20);		 
+		//WebElement userMenu=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("_userMenu")));
 		PageUtility.clickOnElement(userMenu);
-		return new SignOutPage(driver);
-		
+		return new SignOutPage(driver);		
+	}
+	
+	public SidebarPage clickOnSidebar() {
+		PageUtility.clickOnElement(sidebar);
+		return new SidebarPage(driver);
+	}
+	
+	public String getDateDisplayed() {
+		return PageUtility.getElementText(date);
 	}
 
 }

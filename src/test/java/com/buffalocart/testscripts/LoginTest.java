@@ -7,15 +7,23 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
+import com.buffalocart.pages.SidebarPage;
 import com.buffalocart.pages.SignOutPage;
+import com.buffalocart.pages.UserManagementPage;
+import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 	LoginPage login;
 	HomePage home;
 	SignOutPage signout;
+	UserManagementPage usermanagement;
+	UsersPage users;
+	AddUserPage adduser;
+	SidebarPage sidebar;
 	SoftAssert softAssert = new SoftAssert();
 
 	@Test(description = "TC_001_Verify login page title", priority = 1, enabled = false)
@@ -60,4 +68,5 @@ public class LoginTest extends Base {
 		Assert.assertTrue(checkboxStatus, "Unable to click checkbox");
 	}
 	
+
 }

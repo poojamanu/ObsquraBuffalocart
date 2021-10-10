@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.ForgotPasswordTest" hash-for-method="verifyResetPasswordWithInvalidEmailid">verifyResetPasswordWithInvalidEmailid</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.UserManagementTest" hash-for-method="verifyUserManagementSubmenus">verifyUserManagementSubmenus</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -122,16 +122,16 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.buffalocart.testscripts.ForgotPasswordTest</span>
+              <span class="class-name">com.buffalocart.testscripts.UserManagementTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyResetPasswordWithInvalidEmailid">
-                  </a> <!-- verifyResetPasswordWithInvalidEmailid -->
-                  <span class="method-name">verifyResetPasswordWithInvalidEmailid</span>
+                  <a name="verifyUserManagementSubmenus">
+                  </a> <!-- verifyUserManagementSubmenus -->
+                  <span class="method-name">verifyUserManagementSubmenus</span>
                   <em>
-(TC_005_Verify error message displyed on  Reset Password page with invalid email id)                  </em>
+(TC_008_verify sub menus are displayed on clicking User management)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -154,6 +154,13 @@
       &lt;class name=&quot;com.buffalocart.testscripts.HomeTest&quot;/&gt;
       &lt;class name=&quot;com.buffalocart.testscripts.ForgotPasswordTest&quot;/&gt;
       &lt;class name=&quot;com.buffalocart.testscripts.SignOutTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.UserManagementTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.UsersTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.AddUserTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.RolesTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.AddRolesTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.SalesCommissionAgentTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.AddSalesCommissionAgentTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -167,7 +174,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (5 classes)</span>
+                <span class="test-name">Test (12 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -195,14 +202,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyResetPasswordWithInvalidEmailid')
-data.setCell(0, 2, 'com.buffalocart.testscripts.ForgotPasswordTest')
-data.setCell(0, 3, 5883);
+data.setCell(0, 1, 'verifyUserManagementSubmenus')
+data.setCell(0, 2, 'com.buffalocart.testscripts.UserManagementTest')
+data.setCell(0, 3, 7885);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -217,7 +224,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">6 ignored methods</span>
+            <span class="header-content">20 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -230,7 +237,47 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.buffalocart.testscripts.HomeTest</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyDateDisplayedInHomePage</span>
+                <br/>
                 <span class="ignored-method-name">verifyHomePageTitle</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.AddUserTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyAddUser</span>
+                <br/>
+                <span class="ignored-method-name">verifyAddUsersPageTitle</span>
+                <br/>
+                <span class="ignored-method-name">verifyErrorMessageOnNotFillingMandatoryUserFields</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.RolesTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyNewRoleListedInUserAddPage</span>
+                <br/>
+                <span class="ignored-method-name">verifyRolesPageTitle</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.AddSalesCommissionAgentTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyAddNewSalesCommissionAgent</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.UsersTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyUsersPageTitle</span>
+                <br/>
+                <span class="ignored-method-name">verifyUserLoginWithNewlyAddedUser</span>
+                <br/>
+                <span class="ignored-method-name">verifyUserSearch</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -247,6 +294,29 @@ return data;
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.ForgotPasswordTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyResetPasswordWithInvalidEmailid</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.AddRolesTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifyAddRolesPageTitle</span>
+                <br/>
+                <span class="ignored-method-name">verifyAddNewRole</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.buffalocart.testscripts.SalesCommissionAgentTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verifySalesCommissionAgentPageTitle</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -255,18 +325,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.buffalocart.testscripts.ForgotPasswordTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.buffalocart.testscripts.UserManagementTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyResetPasswordWithInvalidEmailid</span>
-                <span class="method-start">8451 ms</span>
+                <span class="method-name">verifyUserManagementSubmenus</span>
+                <span class="method-start">29986 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyResetPasswordWithInvalidEmailid status=SUCCESS method=ForgotPasswordTest.veri...)</span>
-                <span class="method-start">14340 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyUserManagementSubmenus status=SUCCESS method=UserManagementTest.verifyUserMan...)</span>
+                <span class="method-start">37877 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
