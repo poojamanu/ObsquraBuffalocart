@@ -42,13 +42,13 @@ public class DeleteUserTest extends Base{
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		users = usermanagement.clickOnUsersSubMenu(); 		
-		deleteuser=users.clickOnDeleteButton("sannoja14");
+		deleteuser=users.clickOnDeleteButton("sannoja15");
 		users=deleteuser.clickOnOkButton();
 		List<ArrayList<String>> userTable=users.getUserTable();
-		Boolean actualStatus=users.isElementPresent(userTable, "sannoja14");
+		Boolean actualStatus=users.isElementPresent(userTable, "sannoja15");
 		softAssert.assertFalse(actualStatus, "user not deleted");
-		//Thread.sleep(5000);
-		users.applyHardWait();
+		Thread.sleep(6000);
+		//users.applyHardWait();
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

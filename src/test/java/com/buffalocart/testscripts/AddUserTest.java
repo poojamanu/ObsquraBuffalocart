@@ -70,9 +70,9 @@ public class AddUserTest extends Base {
 		users = adduser.clickOnSaveButton();
 		PageUtility.HardWait();
 		List<ArrayList<String>> userTable=users.getUserTable();
-		List<String> actualRow=users.searchUserInfo(userTable, "andrewnew");
+		List<String> actualRow=users.searchUserInfo(userTable, "andrewg");
 		//List<String> expectedRow = ExcelUtility.getString(Constants.EXCELFILE, "userTable");
-		List<String> expectedRow=Arrays.asList("andrewnew","Mr andrew george","Support Staff","andrews2014@yahoo.com");
+		List<String> expectedRow=Arrays.asList("andrewg","Mr andrew george","Support Staff","andrews2014@yahoo.com");
 		softAssert.assertEquals(actualRow, expectedRow,"User is not added");
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();

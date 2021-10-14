@@ -1,5 +1,8 @@
 package com.buffalocart.utilities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +27,7 @@ public class PageUtility {
 		return element.getText();
 
 	}
-	
+
 	public static void clearText(WebElement element) {
 		element.clear();
 	}
@@ -32,7 +35,6 @@ public class PageUtility {
 	public static String getAttributeValue(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
 	}
-	
 
 	public void moveToWebElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
@@ -53,6 +55,99 @@ public class PageUtility {
 	public void clickAndHoldOnElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
 		actions.clickAndHold(element).build().perform();
+	}
+
+	public void handleAlert(WebDriver driver) {
+		driver.switchTo().alert();
+	}
+
+	public void acceptAlert(WebDriver driver) {
+		driver.switchTo().alert().accept();
+	}
+
+	public void dismissAlert(WebDriver driver) {
+		driver.switchTo().alert().dismiss();
+	}
+
+	public void enterTextAlert(WebDriver driver, String value) {
+		driver.switchTo().alert().sendKeys(value);
+	}
+
+	public String getAlertText(WebDriver driver) {
+		return driver.switchTo().alert().getText();
+	}
+
+	public static Boolean isElementDisplayed(WebElement element) {
+		return element.isDisplayed();
+	}
+
+	public static Boolean isElementEnabled(WebElement element) {
+		return element.isEnabled();
+	}
+
+	public static Boolean isElementSelected(WebElement element) {
+		return element.isSelected();
+	}
+
+	public static String getPageTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+
+	public static void HardWait() throws InterruptedException {
+		Thread.sleep(5000);
+	}
+
+	public static void clickUsingJavaScriptExecutor(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click()", element);
+	}
+
+	public static void scrollToFindElement(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView()", element);
+	}
+
+	public static void fileUpload() throws AWTException {
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_ENTER);
+
+		robot.keyRelease(KeyEvent.VK_ENTER);
+
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_V);
+
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+
+	}
+
+	public static List<String> searchForElementInTable(List<ArrayList<String>> table, String value) {
+		// boolean found=false;
+		List<String> resultRow = new ArrayList<>();
+		for (ArrayList<String> row : table) {
+			if (row.contains(value)) {
+				resultRow = row;
+				// found=true;
+			}
+
+		}
+		return resultRow;
+	}
+
+	public static boolean isElementFound(List<ArrayList<String>> table, String value) {
+		boolean found = false;
+		for (ArrayList<String> row : table) {
+			if (row.contains(value)) {
+				found = true;
+			} else {
+				found = false;
+			}
+
+		}
+		return found;
 	}
 
 	public static List<String> convertWebElementListToString(List<WebElement> elements) {
@@ -78,82 +173,6 @@ public class PageUtility {
 	public static void selectDropdownbyText(WebElement element, String text) {
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
-	}
-
-	public void handleAlert(WebDriver driver) {
-		driver.switchTo().alert();
-	}
-
-	public void acceptAlert(WebDriver driver) {
-		driver.switchTo().alert().accept();
-	}
-
-	public void dismissAlert(WebDriver driver) {
-		driver.switchTo().alert().dismiss();
-	}
-
-	public void enterTextAlert(WebDriver driver, String value) {
-		 driver.switchTo().alert().sendKeys(value);
-	}
-
-	public String getAlertText(WebDriver driver) {
-		return driver.switchTo().alert().getText();
-	}
-
-	public static Boolean isElementDisplayed(WebElement element) {
-		return element.isDisplayed();
-	}
-
-	public static Boolean isElementEnabled(WebElement element) {
-		return element.isEnabled();
-	}
-
-	public static Boolean isElementSelected(WebElement element) {
-		return element.isSelected();
-	}
-
-	public static String getPageTitle(WebDriver driver) {
-		return driver.getTitle();
-	}
-	
-	public static void HardWait() throws InterruptedException {
-		Thread.sleep(5000);
-	}
-	
-	public static void clickUsingJavaScriptExecutor(WebDriver driver,WebElement element) {
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click()",element);
-	}
-	
-	public static void scrollToFindElement(WebDriver driver,WebElement element) {
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView()",element);
-	}
-
-	public static List<String> searchForElementInTable(List<ArrayList<String>> table, String value) {
-		// boolean found=false;
-		List<String> resultRow = new ArrayList<>();
-		for (ArrayList<String> row : table) {
-			if (row.contains(value)) {
-				resultRow = row;
-				// found=true;
-			}
-
-		}
-		return resultRow;
-	}
-	public static boolean isElementFound(List<ArrayList<String>> table, String value) {
-		boolean found=false;
-		for (ArrayList<String> row : table) {
-			if (row.contains(value)) {
-				found=true;
-			}
-			else {
-				found=false;
-			}
-
-		}
-		return found;
 	}
 
 }

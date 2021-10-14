@@ -43,7 +43,7 @@ public class UpdateUserTest extends Base {
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		users = usermanagement.clickOnUsersSubMenu(); 		
-		updateuser=users.clickOnEditButton("sannoja14");				
+		updateuser=users.clickOnEditButton("sannoja15");				
 		String actualTitle = updateuser.getUpdateUserPageTitle();
 		String expectedTitle = "Edit user - Reobeen HHC";
 		Assert.assertEquals(actualTitle, expectedTitle, "invalid Edit Users page title");
@@ -59,14 +59,14 @@ public class UpdateUserTest extends Base {
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		users = usermanagement.clickOnUsersSubMenu(); 		
-		updateuser=users.clickOnEditButton("sannoja14");		
+		updateuser=users.clickOnEditButton("sannoja15");		
 		updateuser.clearField();
-		updateuser.editEmail("sanooja2021@gmail.com");
+		updateuser.editEmail("sanooja202@gmail.com");
 		users=updateuser.clickOnUpdateButton();
 		List<ArrayList<String>> userTable=users.getUserTable();
-		List<String> actualRow=users.searchUserInfo(userTable, "sannoja14");
+		List<String> actualRow=users.searchUserInfo(userTable, "sannoja15");
 		//List<String> expectedRow = ExcelUtility.getString(Constants.EXCELFILE, "editUser");
-		List<String> expectedRow = Arrays.asList("sannoja14","ms sanooja beegum","Support Staff","sanooja2021@gmail.com");
+		List<String> expectedRow = Arrays.asList("sannoja15","ms sanooja beegum","Support Staff","sanooja202@gmail.com");
 		softAssert.assertEquals(actualRow, expectedRow,"user data not updated");
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();

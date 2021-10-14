@@ -47,12 +47,12 @@ public class UpdateAgentTest extends Base {
 		usermanagement = sidebar.clickOnUserManagement();
 		agent = usermanagement.clickOnSalesCommissionAgentPageSubMenu();
 		updateagent=agent.clickOnEditButton("Mr alen many");
-		updateagent.editEmail("alen2020@gmail.com");
+		updateagent.editEmail("alen2000@gmail.com");
 		agent=updateagent.clickOnSaveButton();	
 		Thread.sleep(7000);
 		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();
 		List<String> actualRow = agent.searchAgentInfo(agentTable, "Mr alen many");
-		List<String> expectedRow = Arrays.asList("Mr alen many","alen2020@gmail.com","3545667","calicut","56.00%");
+		List<String> expectedRow = Arrays.asList("Mr alen many","alen2000@gmail.com","3545667","calicut","56.00%");
 		softAssert.assertEquals(actualRow, expectedRow, "Agent data is not updated");		
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();

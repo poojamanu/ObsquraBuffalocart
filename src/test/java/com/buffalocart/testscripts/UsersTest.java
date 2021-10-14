@@ -94,7 +94,7 @@ public class UsersTest extends Base {
 		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
-		login.enterUsername("sannoja14");
+		login.enterUsername("sannoja15");
 		login.enterPassword("abcdef");
 		home = login.clickOnLoginButton();		
 		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();

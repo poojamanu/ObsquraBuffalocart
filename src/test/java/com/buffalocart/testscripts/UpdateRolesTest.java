@@ -63,7 +63,7 @@ public class UpdateRolesTest extends Base{
 		usermanagement = sidebar.clickOnUserManagement();
 		roles=usermanagement.clickOnRoleSubMenu();
 		updateroles=roles.clickOnEditRole("RoleTest")	;	
-		updateroles.editRoleName("Agent");
+		updateroles.editRoleName("Agent1");
 		updateroles.editCustomerPermissionSelectAllCheckbox();
 		updateroles.editSupplierPermissionSelectAllCheckbox();
 		updateroles.editUserPermissionSelectAllCheckbox();

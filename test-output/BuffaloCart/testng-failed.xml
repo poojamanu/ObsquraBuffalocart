@@ -7,6 +7,13 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="com.buffalocart.testscripts.SignOutTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyNavigationToLoginOnClickSignOut"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.SignOutTest -->
       <class name="com.buffalocart.testscripts.DeleteAgentTest">
         <methods>
           <include name="setUp"/>
@@ -16,7 +23,6 @@
       </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
       <class name="com.buffalocart.testscripts.UsersTest">
         <methods>
-          <include name="verifyUserLoginWithNewlyAddedUser"/>
           <include name="verifyUserSearch"/>
           <include name="setUp"/>
           <include name="tearDown"/>
@@ -29,13 +35,13 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
-      <class name="com.buffalocart.testscripts.DeleteRoleTest">
+      <class name="com.buffalocart.testscripts.UpdateAgentTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
+          <include name="verifyAddNewSalesCommissionAgent"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
+      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
       <class name="com.buffalocart.testscripts.DeleteUserTest">
         <methods>
           <include name="setUp"/>
@@ -53,12 +59,14 @@
       <class name="com.buffalocart.testscripts.UpdateUserTest">
         <methods>
           <include name="verifyEditUser"/>
+          <include name="verifyEditUsersPageTitle"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
       <class name="com.buffalocart.testscripts.AddRolesTest">
         <methods>
+          <include name="verifyAddRolesPageTitle"/>
           <include name="setUp"/>
           <include name="verifyAddNewRole"/>
           <include name="tearDown"/>

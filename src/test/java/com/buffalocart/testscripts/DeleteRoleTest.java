@@ -46,12 +46,12 @@ public class DeleteRoleTest extends Base {
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		roles=usermanagement.clickOnRoleSubMenu();
-		deleterole=roles.clickOnDeleteRole("Clerk");
+		deleterole=roles.clickOnDeleteRole("tester");
 		roles=deleterole.clickOnOkButton();
 		List<ArrayList<String>> rolesTable=roles.getRolesTable();
-		Boolean actualStatus=roles.isElementPresent(rolesTable, "Clerk");
+		Boolean actualStatus=roles.isElementPresent(rolesTable, "tester");
 		softAssert.assertFalse(actualStatus, "role not deleted");
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		//users.applyHardWait(7000);
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
