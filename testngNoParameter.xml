@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="BuffaloCart" thread-count="5">
+<listeners>
+<listener class-name="com.buffalocart.extentreport.ExtentReport"/>
+</listeners>
+  <test thread-count="5" name="Test" >
   <parameter name="browser" value="chrome"/>
     <classes>
       <class name="com.buffalocart.testscripts.LoginTest"/>
@@ -16,7 +19,14 @@
       <class name="com.buffalocart.testscripts.AddRolesTest"/>
       <class name="com.buffalocart.testscripts.SalesCommissionAgentTest"/>
       <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
-      
+      <class name="com.buffalocart.testscripts.UpdateUserTest"/>
+      <class name="com.buffalocart.testscripts.ViewUserTest"/>
+      <class name="com.buffalocart.testscripts.DeleteUserTest"/>
+      <class name="com.buffalocart.testscripts.UpdateRolesTest"/>
+      <class name="com.buffalocart.testscripts.DeleteRoleTest"/>
+      <class name="com.buffalocart.testscripts.DeleteAgentTest"/>
+      <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
+      <class name="com.buffalocart.testscripts.SidebarTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1,6 +1,9 @@
 package com.buffalocart.testscripts;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -31,7 +34,7 @@ public class AddRolesTest extends Base{
 	AddRolesPage addrole;
 	SoftAssert softAssert = new SoftAssert();
 
-	@Test(description = "TC_021_Verify Add Roles page title", priority = 21, enabled = false)
+	@Test(description = "TC_021_Verify Add Roles page title", priority = 21, enabled = true)
 	public void verifyAddRolesPageTitle() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -45,9 +48,12 @@ public class AddRolesTest extends Base{
 		String actualTitle = addrole.getAddRolesPageTitle();
 		String expectedTitle = "Add Role - Reobeen HHC";
 		Assert.assertEquals(actualTitle, expectedTitle, "invalid Add Roles page title");
+		signout = home.clickOnUserMenu();
+		login = signout.clickOnSignoutButton();
+		softAssert.assertAll();
 	}
 	
-	@Test(description = "TC_021_Verify  user can add roles  ", priority = 21, enabled = false)
+	@Test(description = "TC_021_Verify  user can add roles  ", priority = 21, enabled = true)
 	public void verifyAddNewRole() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -58,10 +64,14 @@ public class AddRolesTest extends Base{
 		usermanagement = sidebar.clickOnUserManagement();
 		roles = usermanagement.clickOnRoleSubMenu();		
 		addrole=roles.clickOnAddRoleButton();
-		addrole.enterRoleName("newrole");
+		addrole.enterRoleName("RoleTest");
 		addrole.clickOnUserPermissionSelectAllCheckbox();
 		addrole.clickOnCustomerPermissionSelectAllCheckbox();
 		roles=addrole.clickOnSaveButton();
+		Thread.sleep(5000);
+		List<ArrayList<String>> rolesTable=roles.getRolesTable();
+		Boolean actualStatus=roles.isElementPresent(rolesTable, "RoleTest");
+		softAssert.assertTrue(actualStatus, "Role is not added");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

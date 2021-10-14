@@ -20,7 +20,7 @@ public class HomeTest extends Base {
 	SignOutPage signout;
 	SoftAssert softAssert=new SoftAssert();
 
-	@Test(description = "TC_006_Verify home page title", priority = 6, enabled = false)
+	@Test(description = "TC_006_Verify home page title", priority = 6, enabled = true)
 	public void verifyHomePageTitle() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -30,9 +30,12 @@ public class HomeTest extends Base {
 		String actualTitle = home.getHomePageTitle();
 		String expectedTitle = "Home - Reobeen HHC";
 		Assert.assertEquals(actualTitle, expectedTitle, "invalid home page title");
+		signout = home.clickOnUserMenu();
+		login = signout.clickOnSignoutButton();
+		softAssert.assertAll();
 	}
 
-	@Test(description = "TC_007_Verify date displeyed in home page ", priority = 7, enabled = false)
+	@Test(description = "TC_007_Verify date displeyed in home page ", priority = 7, enabled = true)
 	public void verifyDateDisplayedInHomePage() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));

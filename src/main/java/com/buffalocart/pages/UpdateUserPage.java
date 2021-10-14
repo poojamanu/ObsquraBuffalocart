@@ -60,8 +60,44 @@ public class UpdateUserPage {
 	
 	/*** UserActionMethods ***/	
 	
-	public String getUpdateUsersPageTitle() {
+	public String getUpdateUserPageTitle() {
 		return PageUtility.getPageTitle(driver);
 	}
+	public void editPrefix(String uPrefix) {
+		PageUtility.enterText(prefix, uPrefix);
+	}
+	public void editFirstname(String ufirstName) {
+		PageUtility.enterText(firstName, ufirstName);
+	}
+	public void editLastname(String uLast) {
+		PageUtility.enterText(lastName, uLast);
+	}
+	public void editEmail(String mailid) {
+		PageUtility.enterText(email, mailid);
+	}
+	public void editRole(String role) {
+		PageUtility.selectDropdownbyText(roleDropdown,role );
+	}
+	public void editUsername(String uname) {
+		PageUtility.enterText(username, uname);
+	}
+	public void editPassword(String pword) {
+		PageUtility.enterText(password, pword);
+	}
+	public void editconfirmPassword(String confirmPwd) {
+		PageUtility.enterText(confirmPassword, confirmPwd);
+	}
+	public void editSalesCommissionPercentage(String percent) {
+		PageUtility.enterText(salesCommisionPercent, percent);
+	}
+	public void clearField() {
+		PageUtility.clearText(email);
+	}
+	public UsersPage clickOnUpdateButton() {
+		PageUtility.clickOnElement(update);
+		//PageUtility.clickOnElementUsingJavaScriptExecutor(driver, saveButton);
+		return new UsersPage(driver);
+	}
+	
 
 }

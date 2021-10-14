@@ -22,8 +22,8 @@ public class UserManagementPage {
 
 	/*** WebElements ***/
 
-	//private final String _userManagementSubmenu = "//li[@class='treeview  active']//i[contains(@class,'fa fa')]//following-sibling::span[@class='title']";
-	private final String _userManagementSubmenu="//ul[@class='treeview-menu menu-open']//a";
+	private final String _userManagementSubmenu = "//li[@class='treeview  active']//i[contains(@class,'fa fa')]//following-sibling::span[@class='title']";
+	//private final String _userManagementSubmenu="//ul[@class='treeview-menu menu-open']//a";
 	@FindBy(xpath = _userManagementSubmenu)
 	private List<WebElement> userManagementSubmenu;
 

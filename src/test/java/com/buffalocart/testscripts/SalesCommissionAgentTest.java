@@ -29,7 +29,7 @@ public class SalesCommissionAgentTest extends Base {
 	SalesCommissionAgentPage agent;
 	SoftAssert softAssert = new SoftAssert();
 	
-	@Test(description = "TC_027_Verify  Sales Commission Agents page title", priority = 27, enabled = false)
+	@Test(description = "TC_027_Verify  Sales Commission Agents page title", priority = 27, enabled = true)
 	public void verifySalesCommissionAgentPageTitle() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));

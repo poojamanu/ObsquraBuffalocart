@@ -16,7 +16,7 @@ public class SignOutTest extends Base {
 	SignOutPage signout;
 	SoftAssert softAssert = new SoftAssert();
 
-	@Test(description = "TC_007_Verify whether user is navigating to login page by clicking on Sign out button", priority = 7, enabled = false)
+	@Test(description = "TC_007_Verify whether user is navigating to login page by clicking on Sign out button", priority = 7, enabled = true)
 
 	public void verifyNavigationToLoginOnClickSignOut() throws IOException {
 		login = new LoginPage(driver);

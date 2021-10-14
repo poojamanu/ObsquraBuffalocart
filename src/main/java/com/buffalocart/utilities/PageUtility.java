@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -23,10 +24,15 @@ public class PageUtility {
 		return element.getText();
 
 	}
+	
+	public static void clearText(WebElement element) {
+		element.clear();
+	}
 
 	public static String getAttributeValue(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
 	}
+	
 
 	public void moveToWebElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
@@ -44,17 +50,17 @@ public class PageUtility {
 		actions.contextClick(element).build().perform();
 	}
 
-	public void clickAndHold(WebElement element, WebDriver driver) {
+	public void clickAndHoldOnElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
 		actions.clickAndHold(element).build().perform();
 	}
 
 	public static List<String> convertWebElementListToString(List<WebElement> elements) {
 		List<String> stringlist = new ArrayList<>();
-		for (int i = 0; i < elements.size(); i++) {
+		for (int i = 1; i < elements.size(); i++) {
 			String element = elements.get(i).getText();
-			if(!element.equals("")) {
-			stringlist.add(element);
+			if (!element.equals("")) {
+				stringlist.add(element);
 			}
 		}
 		return stringlist;
@@ -75,31 +81,23 @@ public class PageUtility {
 	}
 
 	public void handleAlert(WebDriver driver) {
-		Alert alert = driver.switchTo().alert();
+		driver.switchTo().alert();
 	}
 
 	public void acceptAlert(WebDriver driver) {
-		Alert alert = driver.switchTo().alert();
-		alert.accept();
+		driver.switchTo().alert().accept();
 	}
 
 	public void dismissAlert(WebDriver driver) {
-		Alert alert = driver.switchTo().alert();
-		alert.dismiss();
+		driver.switchTo().alert().dismiss();
 	}
 
 	public void enterTextAlert(WebDriver driver, String value) {
-		Alert alert = driver.switchTo().alert();
-		alert.sendKeys(value);
+		 driver.switchTo().alert().sendKeys(value);
 	}
 
 	public String getAlertText(WebDriver driver) {
-		Alert alert = driver.switchTo().alert();
-		return alert.getText();
-	}
-
-	public void multipleWindowHandling() {
-
+		return driver.switchTo().alert().getText();
 	}
 
 	public static Boolean isElementDisplayed(WebElement element) {
@@ -117,25 +115,45 @@ public class PageUtility {
 	public static String getPageTitle(WebDriver driver) {
 		return driver.getTitle();
 	}
+	
+	public static void HardWait() throws InterruptedException {
+		Thread.sleep(5000);
+	}
+	
+	public static void clickUsingJavaScriptExecutor(WebDriver driver,WebElement element) {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click()",element);
+	}
+	
+	public static void scrollToFindElement(WebDriver driver,WebElement element) {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView()",element);
+	}
 
-	public static Boolean searchForElementInTable(List<String> table, String value) {
-		boolean found = false;
-		for (int i = 0; i < table.size(); i++) {
-			if (table.get(i).contains(value)) {
-				found = true;
+	public static List<String> searchForElementInTable(List<ArrayList<String>> table, String value) {
+		// boolean found=false;
+		List<String> resultRow = new ArrayList<>();
+		for (ArrayList<String> row : table) {
+			if (row.contains(value)) {
+				resultRow = row;
+				// found=true;
 			}
+
+		}
+		return resultRow;
+	}
+	public static boolean isElementFound(List<ArrayList<String>> table, String value) {
+		boolean found=false;
+		for (ArrayList<String> row : table) {
+			if (row.contains(value)) {
+				found=true;
+			}
+			else {
+				found=false;
+			}
+
 		}
 		return found;
 	}
-	
-	public static String getusertable(List<ArrayList<String>> table, String value) {
-		for (int i = 0; i < table.size(); i++) {
-			if (table.get(i).contains(value)) {
-				
-			}
-		}
-		return null;
-	}
-	
-	
+
 }

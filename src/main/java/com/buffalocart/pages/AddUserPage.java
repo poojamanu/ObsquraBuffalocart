@@ -108,7 +108,8 @@ public class AddUserPage {
 		PageUtility.enterText(salesCommisionPercent, percent);
 	}
 	public UsersPage clickOnSaveButton() {
-		PageUtility.clickOnElement(saveButton);
+		//PageUtility.clickOnElement(saveButton);
+		PageUtility.clickUsingJavaScriptExecutor(driver, saveButton);
 		return new UsersPage(driver);
 	}
 	
@@ -124,6 +125,7 @@ public class AddUserPage {
 	public Boolean isConfirmPasswordErrorDisplayed() {
 		return PageUtility.isElementDisplayed(confirmPasswordError);
 	}
+	
 	
 
 }

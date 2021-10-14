@@ -21,7 +21,7 @@ public class SidebarTest extends Base {
 
 	
 
-	@Test(description = "TC_002_Verify user login with valid user credentials", priority = 2, enabled = false)
+	@Test(description = "TC_008_Verify whether user is navigating to login page by clicking on Sign out button", priority = 8, enabled = true)
 	public void verifyUserLoginWithValidUserCredentials() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));

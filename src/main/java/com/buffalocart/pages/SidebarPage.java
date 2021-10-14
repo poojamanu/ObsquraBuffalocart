@@ -40,4 +40,9 @@ public class SidebarPage {
 		PageUtility.SelectMenu(sidebar, "Contacts");
 		return new ContactsPage(driver);
 	}
+	
+	public List<String> getSidebarOptions() {
+		return PageUtility.convertWebElementListToString(sidebar);
+		
+	}
 }

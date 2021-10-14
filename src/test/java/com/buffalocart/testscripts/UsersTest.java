@@ -1,6 +1,8 @@
 package com.buffalocart.testscripts;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,6 +18,7 @@ import com.buffalocart.pages.SignOutPage;
 import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
+import com.buffalocart.utilities.PageUtility;
 
 public class UsersTest extends Base {
 	LoginPage login;
@@ -27,7 +30,7 @@ public class UsersTest extends Base {
 	AddUserPage adduser;
 	SoftAssert softAssert = new SoftAssert();
 
-	@Test(description = "TC_010_Verify Users page title", priority = 10, enabled = false)
+	@Test(description = "TC_010_Verify Users page title", priority = 10, enabled = true)
 	public void verifyUsersPageTitle() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -40,10 +43,13 @@ public class UsersTest extends Base {
 		String actualTitle = users.getUsersPageTitle();
 		String expectedTitle = "Users - Reobeen HHC";
 		Assert.assertEquals(actualTitle, expectedTitle, "invalid Users page title");
+		signout = home.clickOnUserMenu();
+		login = signout.clickOnSignoutButton();
+		softAssert.assertAll();
 	}
 	
-	@Test(description = "TC_011_Verify  user search ", priority = 11, enabled = false)
-	public void verifyUserSearch() throws IOException {
+	@Test(description = "TC_013_Verify  user search ", priority = 13, enabled = true)
+	public void verifyUserSearch() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
 		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
@@ -53,16 +59,18 @@ public class UsersTest extends Base {
 		usermanagement = sidebar.clickOnUserManagement();
 		users = usermanagement.clickOnUsersSubMenu();
 		users.clickOnSearchBox();
-		users.enterSearchKey(ExcelUtility.getString(0, 0, Constants.EXCELFILE, "searchkey"));
-		String actualMessage=users.getSearchResultMessage();
-		String expectedMessage="Showing 1 to 1 of 1 entries (filtered from 5 total entries)";
-		softAssert.assertEquals(actualMessage, expectedMessage,"search failed");
+		users.enterSearchKey(ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
+		List<ArrayList<String>> actualTable=users.getUserTable();	
+		PageUtility.HardWait();	
+		List<String> actualSearchResult=users.searchUserInfo(actualTable, ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
+		List<String> expectedResult=ExcelUtility.getString(Constants.EXCELFILE, "userTable"); 		
+		softAssert.assertEquals(actualSearchResult, expectedResult,"User is not found");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
 	}
 	
-	@Test(description = "TC_013_Verify user login with newly added user", priority = 13, enabled = false)
+	@Test(description = "TC_011_Verify user login with newly added user", priority = 11, enabled = true)
 	public void verifyUserLoginWithNewlyAddedUser() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -83,10 +91,10 @@ public class UsersTest extends Base {
 		adduser.enterconfirmPassword(ExcelUtility.getString(2, 7, Constants.EXCELFILE, "newuser"));
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(2, 8, Constants.EXCELFILE, "newuser"));
 		users=adduser.clickOnSaveButton();
-		Thread.sleep(5000);
+		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
-		login.enterUsername("veenas");
+		login.enterUsername("sannoja14");
 		login.enterPassword("abcdef");
 		home = login.clickOnLoginButton();		
 		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();

@@ -26,7 +26,7 @@ public class UserManagementTest extends Base {
 	SignOutPage signout;
 	SoftAssert softAssert = new SoftAssert();
 
-	@Test(description = "TC_008_verify sub menus are displayed on clicking User management", enabled = true, priority = 8)
+	@Test(description = "TC_009_verify sub menus are displayed on clicking User management", enabled = true, priority = 9)
 	public void verifyUserManagementSubmenus() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -36,11 +36,12 @@ public class UserManagementTest extends Base {
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		List<String> actualList=usermanagement.getUserManagementSubmenu();
-		for (int i = 0; i < actualList.size() ; i++) {
-			System.out.println(actualList.get(i));
-		}
+		/*
+		 * for (int i = 0; i < actualList.size() ; i++) {
+		 * System.out.println(actualList.get(i)); }
+		 */
 		List<String> expectedList = ExcelUtility.getString(Constants.EXCELFILE, "UserManagementSubmenu");
-		System.out.println(expectedList);
+		//System.out.println(expectedList);
 		softAssert.assertEquals(actualList, expectedList);
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();

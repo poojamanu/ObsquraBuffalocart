@@ -1,6 +1,9 @@
 package com.buffalocart.testscripts;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,7 +22,7 @@ import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
 
-public class AddSalesCommissionAgentTest extends Base{
+public class AddSalesCommissionAgentTest extends Base {
 	LoginPage login;
 	HomePage home;
 	SignOutPage signout;
@@ -30,9 +33,9 @@ public class AddSalesCommissionAgentTest extends Base{
 	SalesCommissionAgentPage agent;
 	AddSalesCommissionAgentPage addagent;
 	SoftAssert softAssert = new SoftAssert();
-	
-	@Test(description = "TC_027_Verify user can add Sales Commission Agent", priority = 27, enabled = false)
-	public void verifyAddNewSalesCommissionAgent() throws IOException {
+
+	@Test(description = "TC_027_Verify user can add Sales Commission Agent", priority = 27, enabled = true)
+	public void verifyAddNewSalesCommissionAgent() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
 		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
@@ -41,21 +44,26 @@ public class AddSalesCommissionAgentTest extends Base{
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		agent = usermanagement.clickOnSalesCommissionAgentPageSubMenu();
-		addagent=agent.clickOnAddButton();
+		addagent = agent.clickOnAddButton();
 		addagent.enterPrefix(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "newAgent"));
 		addagent.enterFirstname(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "newAgent"));
 		addagent.enterLastname(ExcelUtility.getString(1, 2, Constants.EXCELFILE, "newAgent"));
 		addagent.enterEmail(ExcelUtility.getString(1, 3, Constants.EXCELFILE, "newAgent"));
 		addagent.enterContactNum(ExcelUtility.getNumeric(1, 4, Constants.EXCELFILE, "newAgent"));
-		addagent.enterAddress(ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newAgent"));
+	 	addagent.enterAddress(ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newAgent"));
 		addagent.entersalesCommisionPercent(ExcelUtility.getNumeric(1, 6, Constants.EXCELFILE, "newAgent"));
-		agent=addagent.clickOnSaveButton();
+		agent = addagent.clickOnSaveButton();
+		Thread.sleep(5000);
 		
-		//addagent.clickOnCloseButton();
+		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();
 		
+		List<String> actualRow = agent.searchAgentInfo(agentTable, "Mr alen many");
+		
+		List<String> expectedRow = Arrays.asList("Mr alen many","alenmani@gmail.com","3545667","calicut","56.00");
+		Assert.assertEquals(actualRow, expectedRow, "Agent is not added");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
-		softAssert.assertAll(); 
+		softAssert.assertAll();
 	}
 
 }

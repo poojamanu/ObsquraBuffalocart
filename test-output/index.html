@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>C:\Users\manua\eclipse-workspace\buffalocart\testngNoParameter.xml</span>
+                    <span>C:\Users\manua\eclipse-workspace\buffalocart\testngSample.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.AddUserTest" hash-for-method="verifyAddUser">verifyAddUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.AddUserTest" hash-for-method="verifyAddUsersPageTitle">verifyAddUsersPageTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +123,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.UserManagementTest" hash-for-method="verifyUserManagementSubmenus">verifyUserManagementSubmenus</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.AddUserTest" hash-for-method="verifyErrorMessageOnNotFillingMandatoryUserFields">verifyErrorMessageOnNotFillingMandatoryUserFields</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -119,19 +138,79 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.buffalocart.testscripts.UserManagementTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.buffalocart.testscripts.AddUserTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyUserManagementSubmenus">
-                  </a> <!-- verifyUserManagementSubmenus -->
-                  <span class="method-name">verifyUserManagementSubmenus</span>
+                  <a name="verifyAddUser">
+                  </a> <!-- verifyAddUser -->
+                  <span class="method-name">verifyAddUser</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 20.000
+  (Session info: chrome=94.0.4606.81)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-FR326FK&apos;, ip: &apos;192.168.0.9&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_301&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\manua\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54443}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9d5adbbbd27ce054efd8d3b1582c6460
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy10.click(Unknown Source)
+	at com.buffalocart.utilities.PageUtility.clickOnElement(PageUtility.java:16)
+	at com.buffalocart.pages.UsersPage.clickOnAddUserButton(UsersPage.java:65)
+	at com.buffalocart.testscripts.AddUserTest.verifyAddUser(AddUserTest.java:60)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 35 stack frames
+</div> <!-- stack-trace -->
                   <em>
-(TC_008_verify sub menus are displayed on clicking User management)                  </em>
+(TC_015_Verify  user can add user details )                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAddUsersPageTitle">
+                  </a> <!-- verifyAddUsersPageTitle -->
+                  <span class="method-name">verifyAddUsersPageTitle</span>
+                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index: 10, Size: 10
+	at java.util.ArrayList.rangeCheck(ArrayList.java:659)
+	at java.util.ArrayList.get(ArrayList.java:435)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy11.get(Unknown Source)
+	at com.buffalocart.utilities.PageUtility.SelectMenu(PageUtility.java:71)
+	at com.buffalocart.pages.SidebarPage.clickOnUserManagement(SidebarPage.java:35)
+	at com.buffalocart.testscripts.AddUserTest.verifyAddUsersPageTitle(AddUserTest.java:42)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(TC_014_Verify Add Users page title)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.buffalocart.testscripts.AddUserTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyErrorMessageOnNotFillingMandatoryUserFields">
+                  </a> <!-- verifyErrorMessageOnNotFillingMandatoryUserFields -->
+                  <span class="method-name">verifyErrorMessageOnNotFillingMandatoryUserFields</span>
+                  <em>
+(TC_012_Verify the error message displayed without filling mandatory fields in add user form )                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -139,28 +218,21 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\manua\eclipse-workspace\buffalocart\testngNoParameter.xml</span>
+            <span class="header-content">C:\Users\manua\eclipse-workspace\buffalocart\testngSample.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.buffalocart.extentreport.ExtentReport&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.LoginTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.automationcore.Base&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.HomeTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.ForgotPasswordTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.SignOutTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.UserManagementTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.UsersTest&quot;/&gt;
       &lt;class name=&quot;com.buffalocart.testscripts.AddUserTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.RolesTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.AddRolesTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.SalesCommissionAgentTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.AddSalesCommissionAgentTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.automationcore.Base&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -174,7 +246,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (12 classes)</span>
+                <span class="test-name">Test (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -200,16 +272,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyUserManagementSubmenus')
-data.setCell(0, 2, 'com.buffalocart.testscripts.UserManagementTest')
-data.setCell(0, 3, 7885);
+data.setCell(0, 1, 'verifyAddUser')
+data.setCell(0, 2, 'com.buffalocart.testscripts.AddUserTest')
+data.setCell(0, 3, 44452);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyErrorMessageOnNotFillingMandatoryUserFields')
+data.setCell(1, 2, 'com.buffalocart.testscripts.AddUserTest')
+data.setCell(1, 3, 29176);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyAddUsersPageTitle')
+data.setCell(2, 2, 'com.buffalocart.testscripts.AddUserTest')
+data.setCell(2, 3, 2628);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -224,99 +304,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">20 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.SignOutTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyNavigationToLoginOnClickSignOut</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.HomeTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyDateDisplayedInHomePage</span>
-                <br/>
-                <span class="ignored-method-name">verifyHomePageTitle</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.AddUserTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyAddUser</span>
-                <br/>
-                <span class="ignored-method-name">verifyAddUsersPageTitle</span>
-                <br/>
-                <span class="ignored-method-name">verifyErrorMessageOnNotFillingMandatoryUserFields</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.RolesTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyNewRoleListedInUserAddPage</span>
-                <br/>
-                <span class="ignored-method-name">verifyRolesPageTitle</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.AddSalesCommissionAgentTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyAddNewSalesCommissionAgent</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.UsersTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyUsersPageTitle</span>
-                <br/>
-                <span class="ignored-method-name">verifyUserLoginWithNewlyAddedUser</span>
-                <br/>
-                <span class="ignored-method-name">verifyUserSearch</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.LoginTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyUserLoginWithInValidUserCredentials</span>
-                <br/>
-                <span class="ignored-method-name">verifyClickOnCheckbox</span>
-                <br/>
-                <span class="ignored-method-name">verifyUserLoginWithValidUserCredentials</span>
-                <br/>
-                <span class="ignored-method-name">verifyLoginPageTitle</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.ForgotPasswordTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyResetPasswordWithInvalidEmailid</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.AddRolesTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyAddRolesPageTitle</span>
-                <br/>
-                <span class="ignored-method-name">verifyAddNewRole</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.buffalocart.testscripts.SalesCommissionAgentTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifySalesCommissionAgentPageTitle</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -325,18 +315,46 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.buffalocart.testscripts.UserManagementTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.buffalocart.testscripts.AddUserTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyUserManagementSubmenus</span>
-                <span class="method-start">29986 ms</span>
+                <span class="method-name">verifyErrorMessageOnNotFillingMandatoryUserFields</span>
+                <span class="method-start">30016 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyUserManagementSubmenus status=SUCCESS method=UserManagementTest.verifyUserMan...)</span>
-                <span class="method-start">37877 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyErrorMessageOnNotFillingMandatoryUserFields status=SUCCESS method=AddUserTest...)</span>
+                <span class="method-start">59200 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp(chrome)</span>
+                <span class="method-start">59296 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyAddUsersPageTitle</span>
+                <span class="method-start">86939 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=verifyAddUsersPageTitle status=FAILURE method=AddUserTest.verifyAddUsersPageTitle()...)</span>
+                <span class="method-start">89580 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp(chrome)</span>
+                <span class="method-start">89921 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyAddUser</span>
+                <span class="method-start">114905 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=verifyAddUser status=FAILURE method=AddUserTest.verifyAddUser()[pri:15, instance:co...)</span>
+                <span class="method-start">159360 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

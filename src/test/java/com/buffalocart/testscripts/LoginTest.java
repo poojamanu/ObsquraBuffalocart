@@ -26,7 +26,7 @@ public class LoginTest extends Base {
 	SidebarPage sidebar;
 	SoftAssert softAssert = new SoftAssert();
 
-	@Test(description = "TC_001_Verify login page title", priority = 1, enabled = false)
+	@Test(description = "TC_001_Verify login page title", priority = 1, enabled = true)
 	public void verifyLoginPageTitle() {
 		login = new LoginPage(driver);
 		String actualTitle = login.getLoginPageTitle();
@@ -34,7 +34,7 @@ public class LoginTest extends Base {
 		Assert.assertEquals(actualTitle, expectedTitle, "invalid login page title");
 	}
 
-	@Test(description = "TC_002_Verify user login with valid user credentials", priority = 2, enabled = false)
+	@Test(description = "TC_002_Verify user login with valid user credentials", priority = 2, enabled = true)
 	public void verifyUserLoginWithValidUserCredentials() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -48,7 +48,7 @@ public class LoginTest extends Base {
 		softAssert.assertAll();
 	}
 
-	@Test(description = "TC_003_Verify the error message displayed for user login with invalid credentials", priority = 3, enabled = false)
+	@Test(description = "TC_003_Verify the error message displayed for user login with invalid credentials", priority = 3, enabled = true)
 	public void verifyUserLoginWithInValidUserCredentials() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(2, 0, Constants.EXCELFILE, "Login"));
@@ -60,7 +60,7 @@ public class LoginTest extends Base {
 
 	}
 
-	@Test(description = "TC_004_Verify whetehr the user is able to click on 'Remember me' checkbox", priority = 4, enabled = false)
+	@Test(description = "TC_004_Verify whetehr the user is able to click on 'Remember me' checkbox", priority = 4, enabled = true)
 	public void verifyClickOnCheckbox() {
 		login = new LoginPage(driver);
 		login.clickOnCheckbox();
