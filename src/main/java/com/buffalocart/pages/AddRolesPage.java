@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
+import com.buffalocart.utilities.WaitUtility.LocatorType;
 
 public class AddRolesPage {
 	WebDriver driver;
@@ -52,6 +54,11 @@ public class AddRolesPage {
 	@FindBy(css = _SaveButton)
 	private WebElement SaveButton;
 	
+	private final String _userMenu = "//li[@class=\"dropdown user user-menu\"]";
+	@FindBy(xpath = _userMenu)
+	private WebElement userMenu;
+
+	
 	
 	/*** UserActionMethods ***/
 	public String getAddRolesPageTitle() {
@@ -73,7 +80,7 @@ public class AddRolesPage {
 		PageUtility.clickOnElement(customerSelectAll);
 	}
 	public RolesPage clickOnSaveButton() {
-		PageUtility.clickOnElement(SaveButton);
+		PageUtility.clickOnElement(SaveButton);	
 		return new RolesPage(driver);
 	}
 	

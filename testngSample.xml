@@ -2,15 +2,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 <listeners>
-<listener class-name="com.buffalocart.extentreport.ExtentReport"/>
+<listener class-name="com.buffalocart.listener.TestListener"/>
 </listeners>
   <test thread-count="5" name="Test" >
   <parameter name="browser" value="chrome"/>
-    <classes>
-         
-      <class name="com.buffalocart.testscripts.SidebarTest"/>
-      <class name="com.buffalocart.testscripts.HomeTest"/>
-      <class name="com.buffalocart.testscripts.ViewUserTest"/>
+    <classes>      
+       <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
+       <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
       <class name="com.buffalocart.automationcore.Base"/>
       
     </classes>

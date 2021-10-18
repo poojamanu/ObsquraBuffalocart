@@ -9,8 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
@@ -21,6 +23,7 @@ import com.buffalocart.pages.UpdateRolesPage;
 import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
+import com.buffalocart.utilities.PageUtility;
 
 public class UpdateRolesTest extends Base{
 	LoginPage login;
@@ -31,11 +34,11 @@ public class UpdateRolesTest extends Base{
 	RolesPage roles;
 	UsersPage users;
 	AddUserPage adduser;
-	UpdateRolesPage updateroles;
-	
+	UpdateRolesPage updateroles;	
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-	@Test(description = "TC_023_Verify Edit Roles page title", priority = 23, enabled = true)
+	@Test(description = "TC_023_Verify Edit Roles page title", priority = 23, enabled = false)
 	public void verifyEditRolesPageTitle() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -53,7 +56,7 @@ public class UpdateRolesTest extends Base{
 	
 	
 	@Test(description = "TC_024_Verify user can update  a role   ", priority = 24, enabled = true)
-	public void verifyEditUser() throws IOException, InterruptedException {
+	public void verifyEditRole() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
 		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
@@ -63,12 +66,11 @@ public class UpdateRolesTest extends Base{
 		usermanagement = sidebar.clickOnUserManagement();
 		roles=usermanagement.clickOnRoleSubMenu();
 		updateroles=roles.clickOnEditRole("RoleTest")	;	
+		updateroles.clearRoleName();
 		updateroles.editRoleName("Agent1");
-		updateroles.editCustomerPermissionSelectAllCheckbox();
-		updateroles.editSupplierPermissionSelectAllCheckbox();
-		updateroles.editUserPermissionSelectAllCheckbox();
+		//updateroles.editRolesPermissionSelectAllCheckbox();
 		roles=updateroles.clickOnUpdateButton();
-		Thread.sleep(5000);
+		PageUtility.HardWait();
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -88,7 +90,7 @@ public class UpdateRolesTest extends Base{
 		adduser.enterconfirmPassword(ExcelUtility.getNumeric(4, 7, Constants.EXCELFILE, "newuser"));
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(4, 8, Constants.EXCELFILE, "newuser"));
 		users = adduser.clickOnSaveButton();
-		Thread.sleep(5000);
+		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(4, 5, Constants.EXCELFILE, "newuser"));

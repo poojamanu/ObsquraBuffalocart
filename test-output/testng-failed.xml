@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <listeners>
-    <listener class-name="com.buffalocart.extentreport.ExtentReport"/>
+    <listener class-name="com.buffalocart.listener.TestListener"/>
   </listeners>
-  <test thread-count="3" name="ChromeTest(failed)" parallel="methods">
+  <test thread-count="5" name="ChromeTest(failed)" parallel="methods">
     <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="com.buffalocart.testscripts.DeleteUserTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDeleteUser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
+      <class name="com.buffalocart.testscripts.AddRolesTest">
+        <methods>
+          <include name="verifyAddRolesPageTitle"/>
+          <include name="setUp"/>
+          <include name="verifyAddNewRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.AddRolesTest -->
+      <class name="com.buffalocart.testscripts.UsersTest">
+        <methods>
+          <include name="verifyUsersPageTitle"/>
+          <include name="verifyUserLoginWithNewlyAddedUser"/>
+          <include name="verifyUserSearch"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UsersTest -->
       <class name="com.buffalocart.testscripts.LoginTest">
         <methods>
           <include name="verifyUserLoginWithInValidUserCredentials"/>
@@ -16,177 +40,6 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.LoginTest -->
-      <class name="com.buffalocart.testscripts.DeleteAgentTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
-      <class name="com.buffalocart.testscripts.ViewUserTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
-      <class name="com.buffalocart.testscripts.UpdateAgentTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyAddNewSalesCommissionAgent"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
-      <class name="com.buffalocart.testscripts.DeleteRoleTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
-      <class name="com.buffalocart.testscripts.DeleteUserTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteUser"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
-      <class name="com.buffalocart.testscripts.RolesTest">
-        <methods>
-          <include name="verifyNewRoleListedInUserAddPage"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.RolesTest -->
-      <class name="com.buffalocart.testscripts.UsersTest">
-        <methods>
-          <include name="verifyUsersPageTitle"/>
-          <include name="verifyUserLoginWithNewlyAddedUser"/>
-          <include name="verifyUserSearch"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UsersTest -->
-      <class name="com.buffalocart.testscripts.AddUserTest">
-        <methods>
-          <include name="verifyAddUser"/>
-          <include name="setUp"/>
-          <include name="verifyErrorMessageOnNotFillingMandatoryUserFields"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.AddUserTest -->
-      <class name="com.buffalocart.testscripts.UpdateRolesTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="verifyEditRolesPageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
-      <class name="com.buffalocart.testscripts.HomeTest">
-        <methods>
-          <include name="verifyDateDisplayedInHomePage"/>
-          <include name="verifyHomePageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.HomeTest -->
-      <class name="com.buffalocart.testscripts.UpdateUserTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="verifyEditUsersPageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
-      <class name="com.buffalocart.testscripts.AddRolesTest">
-        <methods>
-          <include name="verifyAddRolesPageTitle"/>
-          <include name="setUp"/>
-          <include name="verifyAddNewRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.AddRolesTest -->
-    </classes>
-  </test> <!-- ChromeTest(failed) -->
-  <test thread-count="3" name="firefoxTest(failed)" parallel="methods">
-    <parameter name="browser" value="firefox"/>
-    <classes>
-      <class name="com.buffalocart.testscripts.LoginTest">
-        <methods>
-          <include name="verifyUserLoginWithInValidUserCredentials"/>
-          <include name="verifyUserLoginWithValidUserCredentials"/>
-          <include name="verifyLoginPageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.LoginTest -->
-      <class name="com.buffalocart.testscripts.DeleteAgentTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
-      <class name="com.buffalocart.testscripts.ViewUserTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
-      <class name="com.buffalocart.testscripts.UpdateAgentTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyAddNewSalesCommissionAgent"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
-      <class name="com.buffalocart.testscripts.DeleteRoleTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
-      <class name="com.buffalocart.testscripts.DeleteUserTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteUser"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
-      <class name="com.buffalocart.testscripts.RolesTest">
-        <methods>
-          <include name="verifyNewRoleListedInUserAddPage"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.RolesTest -->
-      <class name="com.buffalocart.testscripts.UsersTest">
-        <methods>
-          <include name="verifyUsersPageTitle"/>
-          <include name="verifyUserLoginWithNewlyAddedUser"/>
-          <include name="verifyUserSearch"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UsersTest -->
-      <class name="com.buffalocart.testscripts.AddUserTest">
-        <methods>
-          <include name="verifyAddUser"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.AddUserTest -->
-      <class name="com.buffalocart.testscripts.UpdateRolesTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="verifyEditRolesPageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
       <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest">
         <methods>
           <include name="verifyAddNewSalesCommissionAgent"/>
@@ -194,6 +47,13 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.AddSalesCommissionAgentTest -->
+      <class name="com.buffalocart.testscripts.ViewUserTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyViewUser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
       <class name="com.buffalocart.testscripts.HomeTest">
         <methods>
           <include name="verifyDateDisplayedInHomePage"/>
@@ -202,6 +62,27 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.HomeTest -->
+      <class name="com.buffalocart.testscripts.DeleteRoleTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDeleteRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
+      <class name="com.buffalocart.testscripts.UpdateAgentTest">
+        <methods>
+          <include name="verifyEditSalesCommissionAgent"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
+      <class name="com.buffalocart.testscripts.UpdateRolesTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyEditRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
       <class name="com.buffalocart.testscripts.UpdateUserTest">
         <methods>
           <include name="verifyEditUser"/>
@@ -210,6 +91,40 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
+      <class name="com.buffalocart.testscripts.RolesTest">
+        <methods>
+          <include name="verifyNewRoleListedInUserAddPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.RolesTest -->
+      <class name="com.buffalocart.testscripts.DeleteAgentTest">
+        <methods>
+          <include name="verifyDeleteAgent"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
+      <class name="com.buffalocart.testscripts.AddUserTest">
+        <methods>
+          <include name="verifyAddUser"/>
+          <include name="setUp"/>
+          <include name="verifyAddUsersPageTitle"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.AddUserTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" name="firefoxTest(failed)" parallel="methods">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.buffalocart.testscripts.DeleteUserTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDeleteUser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
       <class name="com.buffalocart.testscripts.AddRolesTest">
         <methods>
           <include name="verifyAddRolesPageTitle"/>
@@ -218,62 +133,6 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.AddRolesTest -->
-    </classes>
-  </test> <!-- firefoxTest(failed) -->
-  <test thread-count="3" name="edgeTest(failed)" parallel="methods">
-    <parameter name="browser" value="edge"/>
-    <classes>
-      <class name="com.buffalocart.testscripts.LoginTest">
-        <methods>
-          <include name="verifyUserLoginWithInValidUserCredentials"/>
-          <include name="verifyClickOnCheckbox"/>
-          <include name="verifyUserLoginWithValidUserCredentials"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.LoginTest -->
-      <class name="com.buffalocart.testscripts.DeleteAgentTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
-      <class name="com.buffalocart.testscripts.ViewUserTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
-      <class name="com.buffalocart.testscripts.UpdateAgentTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyAddNewSalesCommissionAgent"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
-      <class name="com.buffalocart.testscripts.DeleteRoleTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
-      <class name="com.buffalocart.testscripts.DeleteUserTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteUser"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
-      <class name="com.buffalocart.testscripts.RolesTest">
-        <methods>
-          <include name="verifyNewRoleListedInUserAddPage"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.RolesTest -->
       <class name="com.buffalocart.testscripts.UsersTest">
         <methods>
           <include name="verifyUsersPageTitle"/>
@@ -283,6 +142,184 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.UsersTest -->
+      <class name="com.buffalocart.testscripts.LoginTest">
+        <methods>
+          <include name="verifyUserLoginWithInValidUserCredentials"/>
+          <include name="verifyClickOnCheckbox"/>
+          <include name="verifyUserLoginWithValidUserCredentials"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.LoginTest -->
+      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest">
+        <methods>
+          <include name="verifyAddNewSalesCommissionAgent"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.AddSalesCommissionAgentTest -->
+      <class name="com.buffalocart.testscripts.ViewUserTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyViewUser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
+      <class name="com.buffalocart.testscripts.HomeTest">
+        <methods>
+          <include name="verifyDateDisplayedInHomePage"/>
+          <include name="verifyHomePageTitle"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.HomeTest -->
+      <class name="com.buffalocart.testscripts.DeleteRoleTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDeleteRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
+      <class name="com.buffalocart.testscripts.UpdateAgentTest">
+        <methods>
+          <include name="verifyEditSalesCommissionAgent"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
+      <class name="com.buffalocart.testscripts.UpdateRolesTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyEditRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
+      <class name="com.buffalocart.testscripts.UpdateUserTest">
+        <methods>
+          <include name="verifyEditUser"/>
+          <include name="verifyEditUsersPageTitle"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
+      <class name="com.buffalocart.testscripts.RolesTest">
+        <methods>
+          <include name="verifyNewRoleListedInUserAddPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.RolesTest -->
+      <class name="com.buffalocart.testscripts.DeleteAgentTest">
+        <methods>
+          <include name="verifyDeleteAgent"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
+      <class name="com.buffalocart.testscripts.AddUserTest">
+        <methods>
+          <include name="verifyAddUser"/>
+          <include name="setUp"/>
+          <include name="verifyAddUsersPageTitle"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.AddUserTest -->
+    </classes>
+  </test> <!-- firefoxTest(failed) -->
+  <test thread-count="5" name="edgeTest(failed)" parallel="methods">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="com.buffalocart.testscripts.DeleteUserTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDeleteUser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
+      <class name="com.buffalocart.testscripts.AddRolesTest">
+        <methods>
+          <include name="verifyAddRolesPageTitle"/>
+          <include name="setUp"/>
+          <include name="verifyAddNewRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.AddRolesTest -->
+      <class name="com.buffalocart.testscripts.UsersTest">
+        <methods>
+          <include name="verifyUsersPageTitle"/>
+          <include name="verifyUserLoginWithNewlyAddedUser"/>
+          <include name="verifyUserSearch"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UsersTest -->
+      <class name="com.buffalocart.testscripts.SignOutTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyNavigationToLoginOnClickSignOut"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.SignOutTest -->
+      <class name="com.buffalocart.testscripts.LoginTest">
+        <methods>
+          <include name="verifyUserLoginWithInValidUserCredentials"/>
+          <include name="verifyClickOnCheckbox"/>
+          <include name="verifyUserLoginWithValidUserCredentials"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.LoginTest -->
+      <class name="com.buffalocart.testscripts.ViewUserTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyViewUser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
+      <class name="com.buffalocart.testscripts.HomeTest">
+        <methods>
+          <include name="verifyDateDisplayedInHomePage"/>
+          <include name="verifyHomePageTitle"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.HomeTest -->
+      <class name="com.buffalocart.testscripts.DeleteRoleTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDeleteRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteRoleTest -->
+      <class name="com.buffalocart.testscripts.UpdateRolesTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyEditRole"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
+      <class name="com.buffalocart.testscripts.UpdateUserTest">
+        <methods>
+          <include name="verifyEditUser"/>
+          <include name="verifyEditUsersPageTitle"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
+      <class name="com.buffalocart.testscripts.RolesTest">
+        <methods>
+          <include name="verifyNewRoleListedInUserAddPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.RolesTest -->
+      <class name="com.buffalocart.testscripts.DeleteAgentTest">
+        <methods>
+          <include name="verifyDeleteAgent"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
       <class name="com.buffalocart.testscripts.AddUserTest">
         <methods>
           <include name="verifyAddUser"/>
@@ -292,38 +329,13 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.AddUserTest -->
-      <class name="com.buffalocart.testscripts.UpdateRolesTest">
+      <class name="com.buffalocart.testscripts.UserManagementTest">
         <methods>
-          <include name="verifyEditUser"/>
-          <include name="verifyEditRolesPageTitle"/>
           <include name="setUp"/>
+          <include name="verifyUserManagementSubmenus"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
-      <class name="com.buffalocart.testscripts.HomeTest">
-        <methods>
-          <include name="verifyDateDisplayedInHomePage"/>
-          <include name="verifyHomePageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.HomeTest -->
-      <class name="com.buffalocart.testscripts.UpdateUserTest">
-        <methods>
-          <include name="verifyEditUser"/>
-          <include name="verifyEditUsersPageTitle"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
-      <class name="com.buffalocart.testscripts.AddRolesTest">
-        <methods>
-          <include name="verifyAddRolesPageTitle"/>
-          <include name="setUp"/>
-          <include name="verifyAddNewRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.AddRolesTest -->
+      </class> <!-- com.buffalocart.testscripts.UserManagementTest -->
     </classes>
   </test> <!-- edgeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

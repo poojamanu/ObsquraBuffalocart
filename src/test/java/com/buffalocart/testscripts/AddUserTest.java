@@ -9,8 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
@@ -30,6 +33,7 @@ public class AddUserTest extends Base {
 	UsersPage users;
 	AddUserPage adduser;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_014_Verify Add Users page title", priority = 14, enabled = true)
 	public void verifyAddUsersPageTitle() throws IOException {
@@ -70,9 +74,9 @@ public class AddUserTest extends Base {
 		users = adduser.clickOnSaveButton();
 		PageUtility.HardWait();
 		List<ArrayList<String>> userTable=users.getUserTable();
-		List<String> actualRow=users.searchUserInfo(userTable, "andrewg");
-		//List<String> expectedRow = ExcelUtility.getString(Constants.EXCELFILE, "userTable");
-		List<String> expectedRow=Arrays.asList("andrewg","Mr andrew george","Support Staff","andrews2014@yahoo.com");
+		List<String> actualRow=users.searchUserInfo(userTable, ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newuser"));
+		List<String> expectedRow = ExcelUtility.getRow(Constants.EXCELFILE, "userTable",1);
+		//List<String> expectedRow=Arrays.asList("andrews3","Mr andrew george","Support Staff","andrews2014@yahoo.com");
 		softAssert.assertEquals(actualRow, expectedRow,"User is not added");
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
@@ -82,6 +86,7 @@ public class AddUserTest extends Base {
 
 	@Test(description = "TC_012_Verify the error message displayed without filling mandatory fields in add user form ", priority = 12, enabled = true)
 	public void verifyErrorMessageOnNotFillingMandatoryUserFields() throws IOException {
+		extentTest.get().assignCategory("Regression");		
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
 		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
@@ -107,6 +112,7 @@ public class AddUserTest extends Base {
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
+		extentTest.get().log(Status.PASS, "mandatory fileds missing Test passed");
 	}
 
 }

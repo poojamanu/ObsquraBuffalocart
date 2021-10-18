@@ -6,8 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
@@ -28,6 +30,7 @@ public class SalesCommissionAgentTest extends Base {
 	AddUserPage adduser;
 	SalesCommissionAgentPage agent;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 	
 	@Test(description = "TC_027_Verify  Sales Commission Agents page title", priority = 27, enabled = true)
 	public void verifySalesCommissionAgentPageTitle() throws IOException {

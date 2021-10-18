@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="BuffaloCart" thread-count="5">
+
 <listeners>
-<listener class-name="com.buffalocart.extentreport.ExtentReport"/>
+<listener class-name="com.buffalocart.listener.TestListener"/>
 </listeners>
+
   <test thread-count="5" name="Test" >
   <parameter name="browser" value="chrome"/>
     <classes>
@@ -12,6 +14,7 @@
       <class name="com.buffalocart.testscripts.HomeTest"/>
       <class name="com.buffalocart.testscripts.ForgotPasswordTest"/>
       <class name="com.buffalocart.testscripts.SignOutTest"/>
+      <class name="com.buffalocart.testscripts.SidebarTest"/>
       <class name="com.buffalocart.testscripts.UserManagementTest"/>
       <class name="com.buffalocart.testscripts.UsersTest"/>
       <class name="com.buffalocart.testscripts.AddUserTest"/>
@@ -26,7 +29,7 @@
       <class name="com.buffalocart.testscripts.DeleteRoleTest"/>
       <class name="com.buffalocart.testscripts.DeleteAgentTest"/>
       <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
-      <class name="com.buffalocart.testscripts.SidebarTest"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -6,8 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddRolesPage;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
@@ -18,6 +20,7 @@ import com.buffalocart.pages.SignOutPage;
 import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
+import com.buffalocart.utilities.PageUtility;
 
 public class RolesTest extends Base {
 	LoginPage login;
@@ -30,6 +33,7 @@ public class RolesTest extends Base {
 	AddRolesPage addrole;
 	AddUserPage adduser;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_020_Verify Roles page title", priority = 20, enabled = true)
 	public void verifyRolesPageTitle() throws IOException {
@@ -61,7 +65,7 @@ public class RolesTest extends Base {
 		addrole.clickOnUserPermissionSelectAllCheckbox();
 		addrole.clickOnCustomerPermissionSelectAllCheckbox();
 		roles = addrole.clickOnSaveButton();
-		Thread.sleep(5000);
+		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -81,14 +85,15 @@ public class RolesTest extends Base {
 		adduser.enterconfirmPassword(ExcelUtility.getString(6, 7, Constants.EXCELFILE, "newuser"));
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(6, 8, Constants.EXCELFILE, "newuser"));
 		users = adduser.clickOnSaveButton();
-		Thread.sleep(5000);
+		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(6, 5, Constants.EXCELFILE, "newuser"));
-		login.enterPassword(ExcelUtility.getNumeric(6, 6, Constants.EXCELFILE, "newuser"));
+		login.enterPassword(ExcelUtility.getString(6, 6, Constants.EXCELFILE, "newuser"));
 		home = login.clickOnLoginButton();
 		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();
 		softAssert.assertTrue(booleanStatus, "Login failed");
+		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

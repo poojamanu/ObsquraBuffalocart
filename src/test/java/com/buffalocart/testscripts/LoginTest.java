@@ -5,8 +5,11 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
@@ -25,6 +28,7 @@ public class LoginTest extends Base {
 	AddUserPage adduser;
 	SidebarPage sidebar;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_001_Verify login page title", priority = 1, enabled = true)
 	public void verifyLoginPageTitle() {

@@ -94,7 +94,7 @@ public class PageUtility {
 	}
 
 	public static void HardWait() throws InterruptedException {
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 	public static void clickUsingJavaScriptExecutor(WebDriver driver, WebElement element) {
@@ -142,6 +142,7 @@ public class PageUtility {
 		for (ArrayList<String> row : table) {
 			if (row.contains(value)) {
 				found = true;
+				break;
 			} else {
 				found = false;
 			}

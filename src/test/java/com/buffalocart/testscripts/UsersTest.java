@@ -8,8 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
@@ -19,6 +21,7 @@ import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
 
 public class UsersTest extends Base {
 	LoginPage login;
@@ -29,6 +32,7 @@ public class UsersTest extends Base {
 	UsersPage users;
 	AddUserPage adduser;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_010_Verify Users page title", priority = 10, enabled = true)
 	public void verifyUsersPageTitle() throws IOException {
@@ -60,10 +64,10 @@ public class UsersTest extends Base {
 		users = usermanagement.clickOnUsersSubMenu();
 		users.clickOnSearchBox();
 		users.enterSearchKey(ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
-		List<ArrayList<String>> actualTable=users.getUserTable();	
 		PageUtility.HardWait();	
+		List<ArrayList<String>> actualTable=users.getUserTable();					
 		List<String> actualSearchResult=users.searchUserInfo(actualTable, ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
-		List<String> expectedResult=ExcelUtility.getString(Constants.EXCELFILE, "userTable"); 		
+		List<String> expectedResult=ExcelUtility.getRow(Constants.EXCELFILE, "userTable",0); 		
 		softAssert.assertEquals(actualSearchResult, expectedResult,"User is not found");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
@@ -94,8 +98,8 @@ public class UsersTest extends Base {
 		PageUtility.HardWait();
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
-		login.enterUsername("sannoja15");
-		login.enterPassword("abcdef");
+		login.enterUsername(ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
+		login.enterPassword(ExcelUtility.getString(2,6,Constants.EXCELFILE, "newuser"));
 		home = login.clickOnLoginButton();		
 		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();
 		softAssert.assertTrue(booleanStatus, "Login failed");

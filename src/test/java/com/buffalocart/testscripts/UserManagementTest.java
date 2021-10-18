@@ -8,8 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
 import com.buffalocart.pages.SidebarPage;
@@ -25,6 +27,7 @@ public class UserManagementTest extends Base {
 	SidebarPage sidebar;
 	SignOutPage signout;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_009_verify sub menus are displayed on clicking User management", enabled = true, priority = 9)
 	public void verifyUserManagementSubmenus() throws IOException {

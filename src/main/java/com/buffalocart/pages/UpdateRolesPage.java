@@ -54,6 +54,9 @@ public class UpdateRolesPage {
 	
 	public void editRoleName(String newRoleName) {
 		PageUtility.enterText(roleName, newRoleName);
+	}	
+	public void clearRoleName() {
+		PageUtility.clearText(roleName);
 	}
 	public void editUserPermissionSelectAllCheckbox() {
 		PageUtility.clickOnElement(UserSelectAll);

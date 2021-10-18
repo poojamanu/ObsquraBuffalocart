@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtility {
 	public static final long PAGE_LOAD_WAIT = 20;
-	public static final long EXPLICIT_WAIT = 70;
+	public static final long EXPLICIT_WAIT = 50;
 	public static final long IMPLICIT_WAIT = 20;
 
 	public enum LocatorType {
@@ -42,6 +42,34 @@ public class WaitUtility {
 		}
 		else if(locatortype.equals(LocatorType.Name)) {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(target)));
+		}
+	}
+	
+	public static void waitForElementToBeClickable(WebDriver driver, String target, Enum locatortype) {
+		WebDriverWait wait=new WebDriverWait(driver,TimeUnit.SECONDS.toSeconds(EXPLICIT_WAIT));
+		if(locatortype.equals(LocatorType.Id)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.id(target)));
+		}
+		else if(locatortype.equals(LocatorType.ClassName)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.className(target)));
+		}
+		else if(locatortype.equals(LocatorType.Xpath)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(target)));
+		}
+		else if(locatortype.equals(LocatorType.CssSelector)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(target)));
+		}
+		else if(locatortype.equals(LocatorType.Linktext)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(target)));
+		}
+		else if(locatortype.equals(LocatorType.PartiallinkText)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(target)));
+		}
+		else if(locatortype.equals(LocatorType.Tagname)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.tagName(target)));
+		}
+		else if(locatortype.equals(LocatorType.Name)) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.name(target)));
 		}
 	}
 

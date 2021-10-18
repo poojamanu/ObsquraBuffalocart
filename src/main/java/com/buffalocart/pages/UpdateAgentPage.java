@@ -34,7 +34,7 @@ public class UpdateAgentPage {
 	private WebElement lastName;
 
 	private final String _email = "email";
-	@FindBy(id = _email)
+	@FindBy(name = _email)
 	private WebElement email;
 
 	private final String _contactNumber = "contact_no";

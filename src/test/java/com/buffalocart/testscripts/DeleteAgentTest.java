@@ -7,8 +7,10 @@ import java.util.List;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.DeleteAgentPage;
 import com.buffalocart.pages.DeleteRolesPage;
@@ -35,11 +37,11 @@ public class DeleteAgentTest extends Base{
 	UpdateUserPage updateuser;
 	DeleteAgentPage deleteagent;
 	SalesCommissionAgentPage agent;
-
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_030_Verify user can delete Sales Commission Agent ", priority = 30, enabled = true)
-	public void verifyDeleteRole() throws IOException, InterruptedException {
+	public void verifyDeleteAgent() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
 		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
@@ -49,11 +51,12 @@ public class DeleteAgentTest extends Base{
 		usermanagement = sidebar.clickOnUserManagement();
 		agent=usermanagement.clickOnSalesCommissionAgentPageSubMenu();
 		deleteagent=agent.clickOnDeleteButton("Mr alen many");
-		agent=deleteagent.clickOnOkButton();		
+		agent=deleteagent.clickOnOkButton();
+		users.applyHardWait();
 		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();		
 		Boolean actualStatus=agent.isElementPresent(agentTable, "Mr alen many");
-		softAssert.assertFalse(actualStatus, "role not deleted");		
-		users.applyHardWait();
+		softAssert.assertFalse(actualStatus, "agent not deleted");		
+		
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

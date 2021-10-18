@@ -67,9 +67,10 @@ public class HomePage {
 	}
 
 	public SignOutPage clickOnUserMenu() {				
-		//WaitUtility.waitForElement(driver, userMenu, LocatorType.Xpath);
+		//WaitUtility.waitForElementToBeClickable(driver, _userMenu, LocatorType.Xpath);		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(_userMenu)));
 		PageUtility.clickOnElement(userMenu);
-		//PageUtility.clickOnElementUsingJavaScriptExecutor(driver,userMenu);
 		return new SignOutPage(driver);
 	}
 

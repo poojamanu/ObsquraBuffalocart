@@ -1,4 +1,4 @@
-package com.buffalocart.testscripts;
+ package com.buffalocart.testscripts;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
+import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddSalesCommissionAgentPage;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.HomePage;
@@ -22,6 +24,7 @@ import com.buffalocart.pages.UpdateAgentPage;
 import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
+import com.buffalocart.utilities.PageUtility;
 
 public class UpdateAgentTest extends Base {
 	LoginPage login;
@@ -35,9 +38,10 @@ public class UpdateAgentTest extends Base {
 	AddSalesCommissionAgentPage addagent;
 	UpdateAgentPage updateagent;
 	SoftAssert softAssert = new SoftAssert();
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
 	@Test(description = "TC_028_Verify Edit sales agent details", priority = 28, enabled = true)
-	public void verifyAddNewSalesCommissionAgent() throws IOException, InterruptedException {
+	public void verifyEditSalesCommissionAgent() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
 		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
@@ -49,10 +53,10 @@ public class UpdateAgentTest extends Base {
 		updateagent=agent.clickOnEditButton("Mr alen many");
 		updateagent.editEmail("alen2000@gmail.com");
 		agent=updateagent.clickOnSaveButton();	
-		Thread.sleep(7000);
+		PageUtility.HardWait();
 		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();
 		List<String> actualRow = agent.searchAgentInfo(agentTable, "Mr alen many");
-		List<String> expectedRow = Arrays.asList("Mr alen many","alen2000@gmail.com","3545667","calicut","56.00%");
+		List<String> expectedRow = Arrays.asList("Mr alen many","alen2000@gmail.com","3545667","calicut","56.00");
 		softAssert.assertEquals(actualRow, expectedRow, "Agent data is not updated");		
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
