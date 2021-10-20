@@ -56,7 +56,7 @@ public class DeleteRoleTest extends Base {
 		List<ArrayList<String>> rolesTable=roles.getRolesTable();
 		Boolean actualStatus=roles.isElementPresent(rolesTable, "Agent1");
 		softAssert.assertFalse(actualStatus, "role not deleted");
-		
+		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

@@ -68,12 +68,15 @@ public class UpdateUserTest extends Base {
 		updateuser.editEmail("sanooja202@gmail.com");
 		users = updateuser.clickOnUpdateButton();
 		List<ArrayList<String>> userTable = users.getUserTable();
-		List<String> actualRow = users.searchUserInfo(userTable, ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
-		//List<String> expectedRow = ExcelUtility.getRow(Constants.EXCELFILE, "userTable",0);
-		List<String> expectedRow = Arrays.asList("sanooja27", "ms sanooja beegum", "Support Staff",
-				"sanooja202@gmail.com");
+		List<String> actualRow = users.searchUserInfo(userTable,
+				ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
+		 List<String> expectedRow = ExcelUtility.getRow(Constants.EXCELFILE,
+		 "userTable",2);
+		//List<String> expectedRow = Arrays.asList("sanooja32", "ms sanooja beegum", "Support Staff",
+				//"sanooja202@gmail.com");
 		softAssert.assertEquals(actualRow, expectedRow, "user data not updated");
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

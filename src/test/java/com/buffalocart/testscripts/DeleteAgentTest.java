@@ -25,6 +25,7 @@ import com.buffalocart.pages.UpdateUserPage;
 import com.buffalocart.pages.UserManagementPage;
 import com.buffalocart.pages.UsersPage;
 import com.buffalocart.utilities.ExcelUtility;
+import com.buffalocart.utilities.PageUtility;
 
 public class DeleteAgentTest extends Base{
 	LoginPage login;
@@ -52,11 +53,12 @@ public class DeleteAgentTest extends Base{
 		agent=usermanagement.clickOnSalesCommissionAgentPageSubMenu();
 		deleteagent=agent.clickOnDeleteButton("Mr alen many");
 		agent=deleteagent.clickOnOkButton();
-		users.applyHardWait();
+		//users.applyHardWait();
+		PageUtility.HardWait();
 		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();		
 		Boolean actualStatus=agent.isElementPresent(agentTable, "Mr alen many");
 		softAssert.assertFalse(actualStatus, "agent not deleted");		
-		
+		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

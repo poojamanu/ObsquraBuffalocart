@@ -52,7 +52,7 @@ public class DeleteUserTest extends Base{
 		List<ArrayList<String>> userTable=users.getUserTable();
 		Boolean actualStatus=users.isElementPresent(userTable, ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
 		softAssert.assertFalse(actualStatus, "user not deleted");
-		
+		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

@@ -47,7 +47,8 @@ public class RolesPage {
 		return new AddRolesPage(driver);
 	}
 
-	public List<ArrayList<String>> getRolesTable() {
+	public List<ArrayList<String>> getRolesTable() throws InterruptedException {
+		//PageUtility.HardWait();
 		return TableUtility.getGridData(rolesRow, rolesColumn);
 
 	}

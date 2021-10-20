@@ -39,7 +39,7 @@ public class AddSalesCommissionAgentTest extends Base {
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-	@Test(description = "TC_027_Verify user can add Sales Commission Agent", priority = 27, enabled = true)
+	@Test(description = "TC_028_Verify user can add Sales Commission Agent", priority = 28, enabled = true)
 	public void verifyAddNewSalesCommissionAgent() throws IOException, InterruptedException {
 		extentTest.get().assignCategory("Sanity");
 		login = new LoginPage(driver);
@@ -56,22 +56,20 @@ public class AddSalesCommissionAgentTest extends Base {
 		addagent.enterLastname(ExcelUtility.getString(1, 2, Constants.EXCELFILE, "newAgent"));
 		addagent.enterEmail(ExcelUtility.getString(1, 3, Constants.EXCELFILE, "newAgent"));
 		addagent.enterContactNum(ExcelUtility.getNumeric(1, 4, Constants.EXCELFILE, "newAgent"));
-	 	addagent.enterAddress(ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newAgent"));
+		addagent.enterAddress(ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newAgent"));
 		addagent.entersalesCommisionPercent(ExcelUtility.getNumeric(1, 6, Constants.EXCELFILE, "newAgent"));
 		agent = addagent.clickOnSaveButton();
 		PageUtility.HardWait();
-		
 		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();
-		
 		List<String> actualRow = agent.searchAgentInfo(agentTable, "Mr alen many");
-		
-		List<String> expectedRow = Arrays.asList("Mr alen many","alenmani@gmail.com","3545667","calicut","56.00");
-		Assert.assertEquals(actualRow, expectedRow, "Agent is not added");
+		List<String> expectedRow = Arrays.asList("Mr alen many", "alenmani@gmail.com", "3545667", "calicut", "56.00");
+		softAssert.assertEquals(actualRow, expectedRow, "Agent is not added");
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
 		extentTest.get().log(Status.PASS, "add new agent Test passed");
-		
+
 	}
 
 }

@@ -20,16 +20,13 @@ public class SidebarPage {
 	}
 
 	/*** WebElements ***/
-	private final String _sidebar = "//ul[@class='sidebar-menu']//li[@class='treeview ']";
+	private final String _sidebar = "//ul[@class='sidebar-menu']/li/a/i/following-sibling::span[1]";
 	@FindBy(xpath = _sidebar)
 	private List<WebElement> sidebar; // 12 elements
 
 	/*** UserActionMethods ***/
 
-	/*
-	 * public List<WebElement> getSidebarMenu() { //return
-	 * PageUtility.getDropdownOption(sidebar); }
-	 */
+	
 
 	public UserManagementPage clickOnUserManagement() {
 		PageUtility.SelectMenu(sidebar, "User Management");

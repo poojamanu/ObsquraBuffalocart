@@ -41,7 +41,7 @@ public class SidebarTest extends Base {
 		softAssert.assertAll();
 	}
 	
-	@Test(description = "TC_031_sidebar verification", priority = 31, enabled = false)
+	@Test(description = "TC_031_sidebar verification", priority = 31, enabled = true)
 	public void verifySidebar() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -50,7 +50,8 @@ public class SidebarTest extends Base {
 		home.clickEndTourButton();
 		sidebar=home.clickOnSidebar();
 		List<String> sidebarlist=sidebar.getSidebarOptions();
-		 System.out.println(sidebarlist);
+		List<String> expectedList=ExcelUtility.getString(Constants.EXCELFILE, "sidebar");
+		softAssert.assertEquals(sidebarlist, expectedList);
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

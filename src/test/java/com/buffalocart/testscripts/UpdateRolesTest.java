@@ -38,7 +38,7 @@ public class UpdateRolesTest extends Base{
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-	@Test(description = "TC_023_Verify Edit Roles page title", priority = 23, enabled = false)
+	@Test(description = "TC_023_Verify Edit Roles page title", priority = 23, enabled = true)
 	public void verifyEditRolesPageTitle() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -71,6 +71,7 @@ public class UpdateRolesTest extends Base{
 		//updateroles.editRolesPermissionSelectAllCheckbox();
 		roles=updateroles.clickOnUpdateButton();
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -91,6 +92,7 @@ public class UpdateRolesTest extends Base{
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(4, 8, Constants.EXCELFILE, "newuser"));
 		users = adduser.clickOnSaveButton();
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(4, 5, Constants.EXCELFILE, "newuser"));
@@ -101,12 +103,6 @@ public class UpdateRolesTest extends Base{
 		softAssert.assertTrue(booleanStatus, "Login failed");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
-		/*
-		 * List<String> actualSidebarList=sidebar.getSidebarOptions(); List<String>
-		 * expectedList=Arrays.asList("Supplier");
-		 * softAssert.assertEquals(actualSidebarList,
-		 * expectedList,"invalid role permissions");
-		 */
 		softAssert.assertAll();
 	}
 

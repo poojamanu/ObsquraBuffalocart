@@ -66,7 +66,8 @@ public class UsersPage {
 		return new AddUserPage(driver);
 	}
 
-	public List<ArrayList<String>> getUserTable() {
+	public List<ArrayList<String>> getUserTable() throws InterruptedException {
+		//PageUtility.HardWait();
 		return TableUtility.getGridData(rowItems, columnItems);
 
 	}

@@ -66,14 +66,18 @@ public class HomePage {
 
 	}
 
-	public SignOutPage clickOnUserMenu() {				
-		//WaitUtility.waitForElementToBeClickable(driver, _userMenu, LocatorType.Xpath);		
-		WebDriverWait wait=new WebDriverWait(driver,20);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(_userMenu)));
+	public void isUserMenuLoaded() {
+		WaitUtility.waitForElementToBeClickable(driver, userMenu);		
+		
+	}
+	
+	public SignOutPage clickOnUserMenu() {		
+		//WaitUtility.waitForElementToBeClickable(driver, userMenu);		
 		PageUtility.clickOnElement(userMenu);
 		return new SignOutPage(driver);
 	}
 
+	
 	public SidebarPage clickOnSidebar() {
 		PageUtility.clickOnElement(sidebar);
 		return new SidebarPage(driver);

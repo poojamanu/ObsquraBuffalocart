@@ -69,6 +69,7 @@ public class UsersTest extends Base {
 		List<String> actualSearchResult=users.searchUserInfo(actualTable, ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));
 		List<String> expectedResult=ExcelUtility.getRow(Constants.EXCELFILE, "userTable",0); 		
 		softAssert.assertEquals(actualSearchResult, expectedResult,"User is not found");
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
@@ -96,6 +97,7 @@ public class UsersTest extends Base {
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(2, 8, Constants.EXCELFILE, "newuser"));
 		users=adduser.clickOnSaveButton();
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(2, 5, Constants.EXCELFILE, "newuser"));

@@ -9,9 +9,10 @@
     <classes>      
        <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
        <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
+       <class name="com.buffalocart.testscripts.DeleteAgentTest"/>
       <class name="com.buffalocart.automationcore.Base"/>
       
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
-  
+   

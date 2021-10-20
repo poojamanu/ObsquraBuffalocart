@@ -41,7 +41,8 @@ public class ForgotPasswordPage {
 
 	}
 
-	public String getInvalidUserEmailMessage() {
+	public String getInvalidUserEmailMessage() throws InterruptedException {
+		PageUtility.HardWait();
 		return PageUtility.getElementText(errorMessage);
 	}
 

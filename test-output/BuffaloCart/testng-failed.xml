@@ -14,34 +14,20 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
-      <class name="com.buffalocart.testscripts.UpdateRolesTest">
+      <class name="com.buffalocart.testscripts.AddUserTest">
         <methods>
-          <include name="setUp"/>
-          <include name="verifyEditRole"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateRolesTest -->
-      <class name="com.buffalocart.testscripts.DeleteAgentTest">
-        <methods>
-          <include name="verifyDeleteAgent"/>
+          <include name="verifyAddUser"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
-      <class name="com.buffalocart.testscripts.DeleteUserTest">
+      </class> <!-- com.buffalocart.testscripts.AddUserTest -->
+      <class name="com.buffalocart.testscripts.UsersTest">
         <methods>
-          <include name="setUp"/>
-          <include name="verifyDeleteUser"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.DeleteUserTest -->
-      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest">
-        <methods>
-          <include name="verifyAddNewSalesCommissionAgent"/>
+          <include name="verifyUserSearch"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.AddSalesCommissionAgentTest -->
+      </class> <!-- com.buffalocart.testscripts.UsersTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [BuffaloCart] -->

@@ -1,6 +1,7 @@
 package com.buffalocart.testscripts;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -66,6 +67,7 @@ public class RolesTest extends Base {
 		addrole.clickOnCustomerPermissionSelectAllCheckbox();
 		roles = addrole.clickOnSaveButton();
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -86,14 +88,18 @@ public class RolesTest extends Base {
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(6, 8, Constants.EXCELFILE, "newuser"));
 		users = adduser.clickOnSaveButton();
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		login.enterUsername(ExcelUtility.getString(6, 5, Constants.EXCELFILE, "newuser"));
 		login.enterPassword(ExcelUtility.getString(6, 6, Constants.EXCELFILE, "newuser"));
 		home = login.clickOnLoginButton();
-		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();
-		softAssert.assertTrue(booleanStatus, "Login failed");
+		sidebar=home.clickOnSidebar();
+		List<String> sidebarlist=sidebar.getSidebarOptions();
+		List<String> expectedList=ExcelUtility.getString(Constants.EXCELFILE, "Rolesidebar");
+		softAssert.assertEquals(sidebarlist, expectedList,"invalid role permissions");
 		PageUtility.HardWait();
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

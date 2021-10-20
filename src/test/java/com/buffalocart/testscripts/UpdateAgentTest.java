@@ -40,7 +40,7 @@ public class UpdateAgentTest extends Base {
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-	@Test(description = "TC_028_Verify Edit sales agent details", priority = 28, enabled = true)
+	@Test(description = "TC_029_Verify Edit sales agent details", priority = 29, enabled = true)
 	public void verifyEditSalesCommissionAgent() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
@@ -53,11 +53,12 @@ public class UpdateAgentTest extends Base {
 		updateagent=agent.clickOnEditButton("Mr alen many");
 		updateagent.editEmail("alen2000@gmail.com");
 		agent=updateagent.clickOnSaveButton();	
-		PageUtility.HardWait();
+		PageUtility.HardWait();		
 		List<ArrayList<String>> agentTable = agent.getSalesCommissionAgentTable();
 		List<String> actualRow = agent.searchAgentInfo(agentTable, "Mr alen many");
 		List<String> expectedRow = Arrays.asList("Mr alen many","alen2000@gmail.com","3545667","calicut","56.00");
-		softAssert.assertEquals(actualRow, expectedRow, "Agent data is not updated");		
+		softAssert.assertEquals(actualRow, expectedRow, "Agent data is not updated");	
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

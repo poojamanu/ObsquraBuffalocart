@@ -39,13 +39,8 @@ public class UserManagementTest extends Base {
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		List<String> actualList=usermanagement.getUserManagementSubmenu();
-		/*
-		 * for (int i = 0; i < actualList.size() ; i++) {
-		 * System.out.println(actualList.get(i)); }
-		 */
 		List<String> expectedList = ExcelUtility.getString(Constants.EXCELFILE, "UserManagementSubmenu");
-		//System.out.println(expectedList);
-		softAssert.assertEquals(actualList, expectedList);
+		softAssert.assertEquals(actualList, expectedList,"invalid sub menu items");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

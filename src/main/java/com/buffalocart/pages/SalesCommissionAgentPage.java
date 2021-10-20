@@ -52,7 +52,8 @@ public class SalesCommissionAgentPage {
 		PageUtility.clickOnElement(AddButton);
 		return new AddSalesCommissionAgentPage(driver);
 	}
-	public List<ArrayList<String>> getSalesCommissionAgentTable() {
+	public List<ArrayList<String>> getSalesCommissionAgentTable() throws InterruptedException {
+		//PageUtility.HardWait();
 		return TableUtility.getGridData(rowItems, columnItems);
 
 	}

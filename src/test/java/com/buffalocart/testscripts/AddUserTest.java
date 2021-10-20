@@ -78,6 +78,7 @@ public class AddUserTest extends Base {
 		List<String> expectedRow = ExcelUtility.getRow(Constants.EXCELFILE, "userTable",1);
 		//List<String> expectedRow=Arrays.asList("andrews3","Mr andrew george","Support Staff","andrews2014@yahoo.com");
 		softAssert.assertEquals(actualRow, expectedRow,"User is not added");
+		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();

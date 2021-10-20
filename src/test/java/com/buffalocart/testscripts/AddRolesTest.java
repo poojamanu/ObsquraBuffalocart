@@ -52,7 +52,7 @@ public class AddRolesTest extends Base{
 		addrole=roles.clickOnAddRoleButton();
 		String actualTitle = addrole.getAddRolesPageTitle();
 		String expectedTitle = "Add Role - Reobeen HHC";
-		Assert.assertEquals(actualTitle, expectedTitle, "invalid Add Roles page title");
+		softAssert.assertEquals(actualTitle, expectedTitle, "invalid Add Roles page title");
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
@@ -78,6 +78,7 @@ public class AddRolesTest extends Base{
 		List<ArrayList<String>> rolesTable=roles.getRolesTable();
 		Boolean actualStatus=roles.isElementPresent(rolesTable, "RoleTest");
 		softAssert.assertTrue(actualStatus, "Role is not added");
+		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
