@@ -33,7 +33,7 @@ public class UserManagementTest extends Base {
 	public void verifyUserManagementSubmenus() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();

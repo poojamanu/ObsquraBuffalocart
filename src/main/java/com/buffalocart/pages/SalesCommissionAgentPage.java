@@ -9,8 +9,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.buffalocart.utilities.HelperMethodUtility;
 import com.buffalocart.utilities.PageUtility;
 import com.buffalocart.utilities.TableUtility;
+import com.buffalocart.utilities.WaitUtility;
+import com.buffalocart.utilities.WaitUtility.LocatorType;
 
 public class SalesCommissionAgentPage {
 	WebDriver driver;
@@ -49,18 +52,29 @@ public class SalesCommissionAgentPage {
 	}
 	
 	public AddSalesCommissionAgentPage clickOnAddButton() {
+		//WaitUtility.waitForElement(driver, _AddButton, LocatorType.CssSelector);
 		PageUtility.clickOnElement(AddButton);
 		return new AddSalesCommissionAgentPage(driver);
 	}
 	public List<ArrayList<String>> getSalesCommissionAgentTable() throws InterruptedException {
-		//PageUtility.HardWait();
+		WaitUtility.waitForElement(driver, _AgentTable, LocatorType.Id);
 		return TableUtility.getGridData(rowItems, columnItems);
 
 	}
 
 	public List<String> searchAgentInfo(List<ArrayList<String>> table, String value) {
-		return PageUtility.searchForElementInTable(table, value);
+		return HelperMethodUtility.searchRow(table, value);
 	}
+	
+	public void isAgentTableLoaded() {
+		WaitUtility.waitForElement(driver, _AgentTable, LocatorType.Id);
+		
+	}
+	public void iselementLoaded(String value) {
+		WaitUtility.waitForElementToBePresent(driver, AgentTable, value);
+		
+	}
+	
 	public UpdateAgentPage clickOnEditButton(String user) throws InterruptedException {
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rowItems, columnItems);
 		OUTER: for (int i = 0; i < grid.size(); i++) {
@@ -79,6 +93,7 @@ public class SalesCommissionAgentPage {
 	}
 
 	public DeleteAgentPage clickOnDeleteButton(String user) throws InterruptedException {
+		//WaitUtility.waitForElement(driver, _AgentTable, LocatorType.Id);
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rowItems, columnItems);
 		OUTER:for (int i = 0; i < grid.size(); i++) {
 			for (int j = 0; j < grid.get(0).size(); j++) {
@@ -86,8 +101,8 @@ public class SalesCommissionAgentPage {
 				
 				if (data.equals(user)) {
 					WebElement delete = driver.findElement(
-							By.xpath("//table[@id='sales_commission_agent_table']//tbody//tr[\" + (i + 1) + \"]//td[6]//button[contains(@class,' delete')]"));
-				
+							By.xpath("//table[@id='sales_commission_agent_table']//tbody//tr[" + (i + 1) + "]//td[6]//button[contains(@class,' delete')]"));
+					//WaitUtility.waitForElementToBeClickable(driver, delete);
 					PageUtility.clickOnElement(delete);
 					break OUTER;
 				}
@@ -98,7 +113,7 @@ public class SalesCommissionAgentPage {
 	}
 	
 	public boolean isElementPresent(List<ArrayList<String>> table, String value) {
-		return PageUtility.isElementFound(table, value);
+		return HelperMethodUtility.isElementFound(table, value);
 	}
 	
 }

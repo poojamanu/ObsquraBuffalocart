@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
 
 public class DeleteRolesPage {
 
@@ -27,6 +28,7 @@ public class DeleteRolesPage {
 	/*** UserActionMethods ***/
 
 	public RolesPage clickOnOkButton() {
+		WaitUtility.waitForElementToBeClickable(driver, OKbutton);
 		PageUtility.clickOnElement(OKbutton);
 		return new RolesPage(driver);
 	}

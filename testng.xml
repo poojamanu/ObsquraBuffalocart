@@ -4,82 +4,30 @@
 <listeners>
 <listener class-name="com.buffalocart.listener.TestListener"/>
 </listeners>
-  <test thread-count="5" name="ChromeTest" parallel="methods">
+  <test parallel="methods" thread-count="2" name="ChromeTest" >
   <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.buffalocart.automationcore.Base"/>
       <class name="com.buffalocart.testscripts.LoginTest"/>
       <class name="com.buffalocart.automationcore.Base"/>
       <class name="com.buffalocart.testscripts.HomeTest"/>
-      <class name="com.buffalocart.testscripts.ForgotPasswordTest"/>
-      <class name="com.buffalocart.testscripts.SignOutTest"/>
-      <class name="com.buffalocart.testscripts.UserManagementTest"/>
-      <class name="com.buffalocart.testscripts.UsersTest"/>
-      <class name="com.buffalocart.testscripts.AddUserTest"/>
-      <class name="com.buffalocart.testscripts.RolesTest"/>
-      <class name="com.buffalocart.testscripts.AddRolesTest"/>
-      <class name="com.buffalocart.testscripts.SalesCommissionAgentTest"/>
-      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
-      <class name="com.buffalocart.testscripts.UpdateUserTest"/>
-      <class name="com.buffalocart.testscripts.ViewUserTest"/>
-      <class name="com.buffalocart.testscripts.DeleteUserTest"/>
-      <class name="com.buffalocart.testscripts.UpdateRolesTest"/>
-      <class name="com.buffalocart.testscripts.DeleteRoleTest"/>
-      <class name="com.buffalocart.testscripts.DeleteAgentTest"/>
-      <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
-      <class name="com.buffalocart.testscripts.SidebarTest"/>
     </classes>
   </test> <!-- Test -->
   
-  <test thread-count="5" name="firefoxTest" parallel="methods">
+  <test parallel="methods" thread-count="2" name="firefoxTest">
   <parameter name="browser" value="firefox"/>
     <classes>
       <class name="com.buffalocart.testscripts.LoginTest"/>
       <class name="com.buffalocart.automationcore.Base"/>
       <class name="com.buffalocart.testscripts.HomeTest"/>
-      <class name="com.buffalocart.testscripts.ForgotPasswordTest"/>
-      <class name="com.buffalocart.testscripts.SignOutTest"/>
-      <class name="com.buffalocart.testscripts.UserManagementTest"/>
-      <class name="com.buffalocart.testscripts.UsersTest"/>
-      <class name="com.buffalocart.testscripts.AddUserTest"/>
-      <class name="com.buffalocart.testscripts.RolesTest"/>
-      <class name="com.buffalocart.testscripts.AddRolesTest"/>
-      <class name="com.buffalocart.testscripts.SalesCommissionAgentTest"/>
-      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
-      <class name="com.buffalocart.testscripts.UpdateUserTest"/>
-      <class name="com.buffalocart.testscripts.ViewUserTest"/>
-      <class name="com.buffalocart.testscripts.DeleteUserTest"/>
-      <class name="com.buffalocart.testscripts.UpdateRolesTest"/>
-      <class name="com.buffalocart.testscripts.DeleteRoleTest"/>
-      <class name="com.buffalocart.testscripts.DeleteAgentTest"/>
-      <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
-      <class name="com.buffalocart.testscripts.SidebarTest"/>
     </classes>
   </test> <!-- Test -->
   
-  <test thread-count="5" name="edgeTest" parallel="methods">
+  <test parallel="methods" thread-count="2" name="edgeTest" >
   <parameter name="browser" value="edge"/>
     <classes>
       <class name="com.buffalocart.testscripts.LoginTest"/>
       <class name="com.buffalocart.automationcore.Base"/>
       <class name="com.buffalocart.testscripts.HomeTest"/>
-      <class name="com.buffalocart.testscripts.ForgotPasswordTest"/>
-      <class name="com.buffalocart.testscripts.SignOutTest"/>
-      <class name="com.buffalocart.testscripts.UserManagementTest"/>
-      <class name="com.buffalocart.testscripts.UsersTest"/>
-      <class name="com.buffalocart.testscripts.AddUserTest"/>
-      <class name="com.buffalocart.testscripts.RolesTest"/>
-      <class name="com.buffalocart.testscripts.AddRolesTest"/>
-      <class name="com.buffalocart.testscripts.SalesCommissionAgentTest"/>
-      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest"/>
-      <class name="com.buffalocart.testscripts.UpdateUserTest"/>
-      <class name="com.buffalocart.testscripts.ViewUserTest"/>
-      <class name="com.buffalocart.testscripts.DeleteUserTest"/>
-      <class name="com.buffalocart.testscripts.UpdateRolesTest"/>
-      <class name="com.buffalocart.testscripts.DeleteRoleTest"/>
-      <class name="com.buffalocart.testscripts.DeleteAgentTest"/>
-      <class name="com.buffalocart.testscripts.UpdateAgentTest"/>
-      <class name="com.buffalocart.testscripts.SidebarTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -2,9 +2,12 @@ package com.buffalocart.utilities;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -13,6 +16,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import com.github.javafaker.Name;
 
 public class PageUtility {
 	public static void clickOnElement(WebElement element) {
@@ -32,13 +37,16 @@ public class PageUtility {
 		element.clear();
 	}
 
+	public static void navigateToBack(WebDriver driver) {
+		driver.navigate().back();
+	}
 	public static String getAttributeValue(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
 	}
 
-	public void moveToWebElement(WebElement element, WebDriver driver) {
+	public static void moveToWebElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
-		actions.moveToElement(element).build().perform();
+		actions.moveToElement(element).click().build().perform();
 
 	}
 
@@ -94,7 +102,7 @@ public class PageUtility {
 	}
 
 	public static void HardWait() throws InterruptedException {
-		Thread.sleep(8000);
+		Thread.sleep(2000);
 	}
 
 	public static void clickUsingJavaScriptExecutor(WebDriver driver, WebElement element) {
@@ -107,73 +115,17 @@ public class PageUtility {
 		js.executeScript("arguments[0].scrollIntoView()", element);
 	}
 
-	public static void fileUpload() throws AWTException {
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_ENTER);
-
-		robot.keyRelease(KeyEvent.VK_ENTER);
-
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-
+	public static void ScrollBy(WebDriver driver) {
+		JavascriptExecutor Js1 = (JavascriptExecutor) driver;
+		Js1.executeScript("window.scrollBy(0,1000)"); 
 	}
-
-	public static List<String> searchForElementInTable(List<ArrayList<String>> table, String value) {
-		// boolean found=false;
-		List<String> resultRow = new ArrayList<>();
-		for (ArrayList<String> row : table) {
-			if (row.contains(value)) {
-				resultRow = row;
-				// found=true;
-			}
-
-		}
-		return resultRow;
-	}
-
-	public static boolean isElementFound(List<ArrayList<String>> table, String value) {
-		boolean found = false;
-		for (ArrayList<String> row : table) {
-			if (row.contains(value)) {
-				found = true;
-				break;
-			} else {
-				found = false;
-			}
-
-		}
-		return found;
-	}
-
-	public static List<String> convertWebElementListToString(List<WebElement> elements) {
-		List<String> stringlist = new ArrayList<>();
-		for (int i = 1; i < elements.size(); i++) {
-			String element = elements.get(i).getText();
-			if (!element.equals("")) {
-				stringlist.add(element);
-			}
-		}
-		return stringlist;
-	}
-
-	public static void SelectMenu(List<WebElement> element, String value) {
-		for (int i = 0; i < element.size(); i++) {
-			String item = element.get(i).getText();
-			if (item.equals(value)) {
-				element.get(i).click();
-			}
-		}
-	}
-
+	
+	
 	public static void selectDropdownbyText(WebElement element, String text) {
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
 	}
+
+	
 
 }

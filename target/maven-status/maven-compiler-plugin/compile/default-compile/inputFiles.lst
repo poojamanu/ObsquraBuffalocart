@@ -1,5 +1,6 @@
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\listener\TestListener.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\ViewUserPage.java
+C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\utilities\HelperMethodUtility.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\extentreport\ExtentReportManager.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\UserManagementPage.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\constants\Constants.java
@@ -21,6 +22,7 @@ C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\utili
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\utilities\WaitUtility.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\AddSalesCommissionAgentPage.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\DeleteRolesPage.java
+C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\utilities\RobotClassUtility.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\SalesCommissionAgentPage.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\ContactsPage.java
 C:\Users\manua\eclipse-workspace\buffalocart\src\main\java\com\buffalocart\pages\ActionsPage.java

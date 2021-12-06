@@ -1,4 +1,5 @@
 com\buffalocart\pages\SignOutPage.class
+com\buffalocart\utilities\RobotClassUtility.class
 com\buffalocart\pages\ForgotPasswordPage.class
 com\buffalocart\utilities\TableUtility.class
 com\buffalocart\pages\SalesCommissionAgentPage.class
@@ -20,7 +21,6 @@ com\buffalocart\pages\AddSalesCommissionAgentPage.class
 com\buffalocart\extentreport\ExtentReportManager$1.class
 com\buffalocart\pages\ActionsPage.class
 com\buffalocart\pages\SidebarPage.class
-com\buffalocart\utilities\ExcelUtility.class
 com\buffalocart\pages\RolesPage.class
 com\buffalocart\pages\DeleteRolesPage.class
 com\buffalocart\pages\UpdateUserPage.class
@@ -29,4 +29,5 @@ com\buffalocart\pages\DeleteUserPage.class
 com\buffalocart\pages\UpdateAgentPage.class
 com\buffalocart\extentreport\ExtentReportManager.class
 com\buffalocart\pages\UserManagementPage.class
+com\buffalocart\utilities\HelperMethodUtility.class
 com\buffalocart\utilities\PageUtility.class

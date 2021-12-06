@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
 
 public class SignOutPage {
 	WebDriver driver;
@@ -24,6 +25,7 @@ public class SignOutPage {
 	/*** UserActionMethods ***/
 	
 	public LoginPage clickOnSignoutButton() {
+		WaitUtility.waitForElementToBeClickable(driver, SignoutButton);
 		PageUtility.clickOnElement(SignoutButton);
 		return new LoginPage(driver);
 	}

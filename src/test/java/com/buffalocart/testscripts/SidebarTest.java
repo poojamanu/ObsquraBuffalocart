@@ -27,25 +27,13 @@ public class SidebarTest extends Base {
 
 	
 
-	@Test(description = "TC_008_Verify whether user is navigating to login page by clicking on Sign out button", priority = 8, enabled = true)
-	public void verifyUserLoginWithValidUserCredentials() throws IOException {
-		login = new LoginPage(driver);
-		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
-		home = login.clickOnLoginButton();
-		home.clickEndTourButton();
-		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();
-		softAssert.assertTrue(booleanStatus, "Login failed");
-		signout = home.clickOnUserMenu();
-		login = signout.clickOnSignoutButton();
-		softAssert.assertAll();
-	}
+	
 	
 	@Test(description = "TC_031_sidebar verification", priority = 31, enabled = true)
 	public void verifySidebar() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar=home.clickOnSidebar();

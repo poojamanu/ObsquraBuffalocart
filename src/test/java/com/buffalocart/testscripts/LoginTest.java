@@ -42,7 +42,7 @@ public class LoginTest extends Base {
 	public void verifyUserLoginWithValidUserCredentials() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();

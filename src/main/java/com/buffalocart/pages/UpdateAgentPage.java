@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
+import com.buffalocart.utilities.WaitUtility.LocatorType;
 
 public class UpdateAgentPage {
 	WebDriver driver;
@@ -75,8 +77,9 @@ public class UpdateAgentPage {
 	}
 
 	public void editEmail(String mailid) throws InterruptedException  {
+		WaitUtility.waitForElement(driver, _email, LocatorType.Name);
 		PageUtility.clearText(email);
-		PageUtility.HardWait();
+		//PageUtility.HardWait();
 		PageUtility.enterText(email, mailid);
 	}
 

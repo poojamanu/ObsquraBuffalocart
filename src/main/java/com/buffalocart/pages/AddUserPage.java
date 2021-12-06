@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.buffalocart.utilities.HelperMethodUtility;
 import com.buffalocart.utilities.PageUtility;
+import com.github.javafaker.Name;
 
 public class AddUserPage {
 	WebDriver driver;
@@ -125,6 +127,9 @@ public class AddUserPage {
 	public Boolean isConfirmPasswordErrorDisplayed() {
 		return PageUtility.isElementDisplayed(confirmPasswordError);
 	}
+	public void enterRandomUsername(String generateUsername) {		
+		PageUtility.enterText(username, generateUsername);
+	} 
 	
 	
 

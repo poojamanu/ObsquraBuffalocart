@@ -16,6 +16,7 @@ import com.buffalocart.constants.Constants;
 import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddRolesPage;
 import com.buffalocart.pages.AddUserPage;
+import com.buffalocart.pages.DeleteRolesPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
 import com.buffalocart.pages.RolesPage;
@@ -36,6 +37,7 @@ public class AddRolesTest extends Base{
 	AddUserPage adduser;
 	RolesPage roles;
 	AddRolesPage addrole;
+	DeleteRolesPage deleterole;
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
@@ -43,7 +45,7 @@ public class AddRolesTest extends Base{
 	public void verifyAddRolesPageTitle() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
@@ -63,7 +65,7 @@ public class AddRolesTest extends Base{
 		extentTest.get().assignCategory("Sanity");
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
@@ -74,10 +76,13 @@ public class AddRolesTest extends Base{
 		addrole.clickOnUserPermissionSelectAllCheckbox();
 		addrole.clickOnCustomerPermissionSelectAllCheckbox();
 		roles=addrole.clickOnSaveButton();
-		PageUtility.HardWait();
+		//PageUtility.HardWait();
 		List<ArrayList<String>> rolesTable=roles.getRolesTable();
 		Boolean actualStatus=roles.isElementPresent(rolesTable, "RoleTest");
 		softAssert.assertTrue(actualStatus, "Role is not added");
+		deleterole=roles.clickOnDeleteRole("RoleTest");
+		roles=deleterole.clickOnOkButton();
+		//PageUtility.HardWait();
 		//home.isUserMenuLoaded();	
 		signout = home.clickOnUserMenu();
 		login = signout.clickOnSignoutButton();

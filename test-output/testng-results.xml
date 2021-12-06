@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="215774" started-at="2021-10-20T00:19:59 IST" finished-at="2021-10-20T00:23:35 IST">
+  <suite name="Suite" duration-ms="170157" started-at="2021-11-01T14:53:00 IST" finished-at="2021-11-01T14:55:50 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="215774" started-at="2021-10-20T00:19:59 IST" finished-at="2021-10-20T00:23:35 IST">
-      <class name="com.buffalocart.testscripts.DeleteAgentTest">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.DeleteAgentTest@62e136d3]" name="setUp" is-config="true" duration-ms="26661" started-at="2021-10-20T00:22:30 IST" finished-at="2021-10-20T00:22:56 IST">
+    <test name="ChromeTest" duration-ms="170157" started-at="2021-11-01T14:53:00 IST" finished-at="2021-11-01T14:55:50 IST">
+      <class name="com.buffalocart.testscripts.AddRolesTest">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0]" name="setUp" is-config="true" duration-ms="31332" started-at="2021-11-01T14:53:00 IST" finished-at="2021-11-01T14:53:31 IST">
           <params>
             <param index="0">
               <value>
@@ -18,24 +18,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyDeleteAgent()[pri:30, instance:com.buffalocart.testscripts.DeleteAgentTest@62e136d3]" name="verifyDeleteAgent" duration-ms="38003" started-at="2021-10-20T00:22:56 IST" description="TC_030_Verify user can delete Sales Commission Agent " finished-at="2021-10-20T00:23:34 IST">
+        <test-method status="PASS" signature="verifyAddRolesPageTitle()[pri:21, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0]" name="verifyAddRolesPageTitle" duration-ms="51147" started-at="2021-11-01T14:53:31 IST" description="TC_021_Verify Add Roles page title" finished-at="2021-11-01T14:54:22 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyDeleteAgent -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.DeleteAgentTest@62e136d3]" name="tearDown" is-config="true" duration-ms="71" started-at="2021-10-20T00:23:35 IST" finished-at="2021-10-20T00:23:35 IST">
+        </test-method> <!-- verifyAddRolesPageTitle -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0]" name="tearDown" is-config="true" duration-ms="91" started-at="2021-11-01T14:54:22 IST" finished-at="2021-11-01T14:54:23 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyDeleteAgent status=SUCCESS method=DeleteAgentTest.verifyDeleteAgent()[pri:30, instance:com.buffalocart.testscripts.DeleteAgentTest@62e136d3] output={null}]]]>
+                <![CDATA[[TestResult name=verifyAddRolesPageTitle status=SUCCESS method=AddRolesTest.verifyAddRolesPageTitle()[pri:21, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.buffalocart.testscripts.DeleteAgentTest -->
-      <class name="com.buffalocart.testscripts.UpdateAgentTest">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.UpdateAgentTest@18a70f16]" name="setUp" is-config="true" duration-ms="25581" started-at="2021-10-20T00:21:20 IST" finished-at="2021-10-20T00:21:45 IST">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0]" name="setUp" is-config="true" duration-ms="26713" started-at="2021-11-01T14:54:23 IST" finished-at="2021-11-01T14:54:49 IST">
           <params>
             <param index="0">
               <value>
@@ -46,50 +44,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyEditSalesCommissionAgent()[pri:29, instance:com.buffalocart.testscripts.UpdateAgentTest@18a70f16]" name="verifyEditSalesCommissionAgent" duration-ms="44461" started-at="2021-10-20T00:21:45 IST" description="TC_029_Verify Edit sales agent details" finished-at="2021-10-20T00:22:30 IST">
+        <test-method status="PASS" signature="verifyAddNewRole()[pri:22, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0]" name="verifyAddNewRole" duration-ms="60700" started-at="2021-11-01T14:54:49 IST" description="TC_022_Verify  user can add roles  " finished-at="2021-11-01T14:55:50 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEditSalesCommissionAgent -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.UpdateAgentTest@18a70f16]" name="tearDown" is-config="true" duration-ms="95" started-at="2021-10-20T00:22:30 IST" finished-at="2021-10-20T00:22:30 IST">
+        </test-method> <!-- verifyAddNewRole -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0]" name="tearDown" is-config="true" duration-ms="94" started-at="2021-11-01T14:55:50 IST" finished-at="2021-11-01T14:55:50 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyEditSalesCommissionAgent status=SUCCESS method=UpdateAgentTest.verifyEditSalesCommissionAgent()[pri:29, instance:com.buffalocart.testscripts.UpdateAgentTest@18a70f16] output={null}]]]>
+                <![CDATA[[TestResult name=verifyAddNewRole status=SUCCESS method=AddRolesTest.verifyAddNewRole()[pri:22, instance:com.buffalocart.testscripts.AddRolesTest@221af3c0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
-      <class name="com.buffalocart.testscripts.AddSalesCommissionAgentTest">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.buffalocart.testscripts.AddSalesCommissionAgentTest@646be2c3]" name="setUp" is-config="true" duration-ms="36349" started-at="2021-10-20T00:19:59 IST" finished-at="2021-10-20T00:20:35 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyAddNewSalesCommissionAgent()[pri:28, instance:com.buffalocart.testscripts.AddSalesCommissionAgentTest@646be2c3]" name="verifyAddNewSalesCommissionAgent" duration-ms="44397" started-at="2021-10-20T00:20:35 IST" description="TC_028_Verify user can add Sales Commission Agent" finished-at="2021-10-20T00:21:20 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAddNewSalesCommissionAgent -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.buffalocart.testscripts.AddSalesCommissionAgentTest@646be2c3]" name="tearDown" is-config="true" duration-ms="88" started-at="2021-10-20T00:21:20 IST" finished-at="2021-10-20T00:21:20 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyAddNewSalesCommissionAgent status=SUCCESS method=AddSalesCommissionAgentTest.verifyAddNewSalesCommissionAgent()[pri:28, instance:com.buffalocart.testscripts.AddSalesCommissionAgentTest@646be2c3] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.buffalocart.testscripts.AddSalesCommissionAgentTest -->
-    </test> <!-- Test -->
+      </class> <!-- com.buffalocart.testscripts.AddRolesTest -->
+    </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>

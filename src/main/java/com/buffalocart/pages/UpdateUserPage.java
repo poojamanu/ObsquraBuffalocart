@@ -98,6 +98,10 @@ public class UpdateUserPage {
 		//PageUtility.clickOnElementUsingJavaScriptExecutor(driver, saveButton);
 		return new UsersPage(driver);
 	}
+	public UsersPage clickBackArrow() {		
+		PageUtility.navigateToBack(driver);
+		return new UsersPage(driver);
+	}
 	
 
 }

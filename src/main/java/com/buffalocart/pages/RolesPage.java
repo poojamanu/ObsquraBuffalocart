@@ -9,8 +9,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.buffalocart.utilities.HelperMethodUtility;
 import com.buffalocart.utilities.PageUtility;
 import com.buffalocart.utilities.TableUtility;
+import com.buffalocart.utilities.WaitUtility;
+import com.buffalocart.utilities.WaitUtility.LocatorType;
 
 public class RolesPage {
 	WebDriver driver;
@@ -35,6 +38,10 @@ public class RolesPage {
 	private final String _rolesColumn = "//table[@id='roles_table']//tbody//tr//td";
 	@FindBy(xpath = _rolesColumn)
 	private List<WebElement> rolesColumn;
+	
+	private final String _rolestable = "roles_table";
+	@FindBy(id = _rolestable)
+	private WebElement rolesTable;
 
 	/*** UserActionMethods ***/
 
@@ -48,16 +55,17 @@ public class RolesPage {
 	}
 
 	public List<ArrayList<String>> getRolesTable() throws InterruptedException {
-		//PageUtility.HardWait();
+		WaitUtility.waitForElement(driver, "roles_table", LocatorType.Id);
 		return TableUtility.getGridData(rolesRow, rolesColumn);
 
 	}
 
 	public List<String> searchForRoles(List<ArrayList<String>> table, String value) {
-		return PageUtility.searchForElementInTable(table, value);
+		return HelperMethodUtility.searchRow(table, value);
 	}
 	
 	public UpdateRolesPage clickOnEditRole(String role) {
+		//WaitUtility.waitForElement(driver, "roles_table", LocatorType.Id);
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rolesRow, rolesColumn);
 		OUTER: for (int i = 0; i < grid.size(); i++) {
 			for (int j = 0; j < grid.get(0).size(); j++) {
@@ -75,6 +83,7 @@ public class RolesPage {
 	}
 	
 	public DeleteRolesPage clickOnDeleteRole(String role) {
+		WaitUtility.waitForElement(driver, "roles_table", LocatorType.Id);
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rolesRow, rolesColumn);
 		OUTER: for (int i = 0; i < grid.size(); i++) {
 			for (int j = 0; j < grid.get(0).size(); j++) {
@@ -92,8 +101,12 @@ public class RolesPage {
 	}
 
 	public boolean isElementPresent(List<ArrayList<String>> table, String value) {
-		return PageUtility.isElementFound(table, value);
+		return HelperMethodUtility.isElementFound(table, value);
 	}
-
+	
+	public void iselementLoaded(String value) {
+		WaitUtility.waitForElementToBePresent(driver, rolesTable, value);
+		
+	} 
 
 }

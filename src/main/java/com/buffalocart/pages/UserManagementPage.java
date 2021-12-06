@@ -8,7 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.buffalocart.utilities.HelperMethodUtility;
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
 
 public class UserManagementPage {
 	WebDriver driver;
@@ -29,22 +31,22 @@ public class UserManagementPage {
 	/*** UserActionMethods ***/
 
 	public List<String> getUserManagementSubmenu() {
-		return PageUtility.convertWebElementListToString(userManagementSubmenu);
+		return HelperMethodUtility.convertWebElementListToString(userManagementSubmenu);
 	}
 	
 
 	public UsersPage clickOnUsersSubMenu() {
-		PageUtility.SelectMenu(userManagementSubmenu, "Users");
+		HelperMethodUtility.SelectMenu(userManagementSubmenu, "Users");
 		return new UsersPage(driver);
 	}
 	
 	public RolesPage clickOnRoleSubMenu() {
-		PageUtility.SelectMenu(userManagementSubmenu, "Roles");
+		HelperMethodUtility.SelectMenu(userManagementSubmenu, "Roles");
 		return new RolesPage(driver);
 	}
 	
 	public SalesCommissionAgentPage clickOnSalesCommissionAgentPageSubMenu() {
-		PageUtility.SelectMenu(userManagementSubmenu, "Sales Commission Agents");
+		HelperMethodUtility.SelectMenu(userManagementSubmenu, "Sales Commission Agents");
 		return new SalesCommissionAgentPage(driver);
 	}
 

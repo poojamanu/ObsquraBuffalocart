@@ -11,6 +11,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
 import com.buffalocart.listener.TestListener;
+import com.buffalocart.pages.AddRolesPage;
 import com.buffalocart.pages.AddUserPage;
 import com.buffalocart.pages.DeleteRolesPage;
 import com.buffalocart.pages.DeleteUserPage;
@@ -36,6 +37,7 @@ public class DeleteRoleTest extends Base {
 	UpdateUserPage updateuser;
 	DeleteUserPage deleteuser;
 	DeleteRolesPage deleterole;
+	AddRolesPage addrole;
 	RolesPage roles;
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
@@ -44,17 +46,23 @@ public class DeleteRoleTest extends Base {
 	public void verifyDeleteRole() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		roles=usermanagement.clickOnRoleSubMenu();
-		deleterole=roles.clickOnDeleteRole("Agent1");
+		addrole=roles.clickOnAddRoleButton();
+		addrole.enterRoleName("RoleTest");
+		addrole.clickOnUserPermissionSelectAllCheckbox();
+		addrole.clickOnCustomerPermissionSelectAllCheckbox();
+		roles=addrole.clickOnSaveButton();
+		deleterole=roles.clickOnDeleteRole("RoleTest");
 		roles=deleterole.clickOnOkButton();
 		PageUtility.HardWait();
 		List<ArrayList<String>> rolesTable=roles.getRolesTable();
-		Boolean actualStatus=roles.isElementPresent(rolesTable, "Agent1");
+		
+		Boolean actualStatus=roles.isElementPresent(rolesTable, "RoleTest");
 		softAssert.assertFalse(actualStatus, "role not deleted");
 		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 

@@ -14,20 +14,6 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.buffalocart.testscripts.UpdateAgentTest -->
-      <class name="com.buffalocart.testscripts.AddUserTest">
-        <methods>
-          <include name="verifyAddUser"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.AddUserTest -->
-      <class name="com.buffalocart.testscripts.UsersTest">
-        <methods>
-          <include name="verifyUserSearch"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.buffalocart.testscripts.UsersTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [BuffaloCart] -->

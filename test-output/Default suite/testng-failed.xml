@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.buffalocart.testscripts.UpdateUserTest">
+      <class name="com.buffalocart.testscripts.ViewUserTest">
         <methods>
-          <include name="verifyEditUser"/>
-          <include name="verifyEditUsersPageTitle"/>
           <include name="setUp"/>
+          <include name="verifyViewUser"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.buffalocart.testscripts.UpdateUserTest -->
+      </class> <!-- com.buffalocart.testscripts.ViewUserTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

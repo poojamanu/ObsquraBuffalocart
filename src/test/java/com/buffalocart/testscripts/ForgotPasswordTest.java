@@ -25,7 +25,7 @@ public class ForgotPasswordTest extends Base {
 		forgotpassword = login.clickOnForgotPasswordLink();
 		forgotpassword.enterEmail(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "UserEmail"));
 		forgotpassword.ClickOnSendPasswordResetLinkButton();
-		PageUtility.HardWait();
+		//PageUtility.HardWait();
 		String actualMessage = forgotpassword.getInvalidUserEmailMessage();
 		String expectedMessage = "We can't find a user with that e-mail address.";
 		Assert.assertEquals(actualMessage, expectedMessage, "user email not registered");

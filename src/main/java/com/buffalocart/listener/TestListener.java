@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.extentreport.ExtentReportManager;
 
+import java.io.IOException;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -43,6 +45,15 @@ public class TestListener extends Base implements ITestListener {
     public synchronized void onTestFailure(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " failed!"));
         test.get().fail(result.getThrowable());
+        try {
+			String screenshotPath = ExtentReportManager.getScreenshot(driver, result.getName());		
+			test.get().addScreenCaptureFromPath(screenshotPath);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     @Override

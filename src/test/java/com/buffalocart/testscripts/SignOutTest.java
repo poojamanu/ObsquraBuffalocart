@@ -20,19 +20,19 @@ public class SignOutTest extends Base {
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-	@Test(description = "TC_007_Verify whether user is navigating to login page by clicking on Sign out button", priority = 7, enabled = true)
+	@Test(description = "TC_008_Verify whether user is navigating to login page by clicking on Sign out button", priority = 8, enabled = true)
 
 	public void verifyNavigationToLoginOnClickSignOut() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home=login.clickOnLoginButton();
 		home.clickEndTourButton();
 		signout=home.clickOnUserMenu();
 		login=signout.clickOnSignoutButton();
 		String actualHeading=login.getLoginPanelHeading();
 		String expectedHeading="Login";
-		softAssert.assertEquals(actualHeading, expectedHeading);
+		softAssert.assertEquals(actualHeading, expectedHeading,"Invalid page");
 		softAssert.assertAll();
 	}
 }

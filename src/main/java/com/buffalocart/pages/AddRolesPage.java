@@ -80,6 +80,7 @@ public class AddRolesPage {
 		PageUtility.clickOnElement(customerSelectAll);
 	}
 	public RolesPage clickOnSaveButton() {
+		WaitUtility.waitForElement(driver, _SaveButton, LocatorType.CssSelector);
 		PageUtility.clickOnElement(SaveButton);	
 		return new RolesPage(driver);
 	}

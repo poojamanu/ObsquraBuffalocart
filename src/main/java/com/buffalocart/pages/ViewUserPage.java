@@ -69,7 +69,13 @@ public class ViewUserPage {
 		return s.substring(0);
 	}
 	
-	
+	public void ScrollDown() {
+		PageUtility.ScrollBy(driver);
+	}
+	public UsersPage navigateToBackPage() {
+		PageUtility.navigateToBack(driver);
+		return new UsersPage(driver);
+	}
 	
 	
 

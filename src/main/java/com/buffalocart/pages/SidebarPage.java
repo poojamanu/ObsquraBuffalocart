@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.buffalocart.utilities.HelperMethodUtility;
 import com.buffalocart.utilities.PageUtility;
 
 public class SidebarPage {
@@ -20,6 +21,7 @@ public class SidebarPage {
 	}
 
 	/*** WebElements ***/
+	
 	private final String _sidebar = "//ul[@class='sidebar-menu']/li/a/i/following-sibling::span[1]";
 	@FindBy(xpath = _sidebar)
 	private List<WebElement> sidebar; // 12 elements
@@ -29,17 +31,17 @@ public class SidebarPage {
 	
 
 	public UserManagementPage clickOnUserManagement() {
-		PageUtility.SelectMenu(sidebar, "User Management");
+		HelperMethodUtility.SelectMenu(sidebar, "User Management");
 		return new UserManagementPage(driver);
 	}
 	
 	public ContactsPage clickOnContacts() {
-		PageUtility.SelectMenu(sidebar, "Contacts");
+		HelperMethodUtility.SelectMenu(sidebar, "Contacts");
 		return new ContactsPage(driver);
 	}
 	
 	public List<String> getSidebarOptions() {
-		return PageUtility.convertWebElementListToString(sidebar);
+		return HelperMethodUtility.convertWebElementListToString(sidebar);
 		
 	}
 }

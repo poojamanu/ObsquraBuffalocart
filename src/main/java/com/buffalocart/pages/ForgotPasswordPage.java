@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
+import com.buffalocart.utilities.WaitUtility.LocatorType;
 
 public class ForgotPasswordPage {
 	WebDriver driver;
@@ -42,7 +44,8 @@ public class ForgotPasswordPage {
 	}
 
 	public String getInvalidUserEmailMessage() throws InterruptedException {
-		PageUtility.HardWait();
+		//PageUtility.HardWait();
+		WaitUtility.waitForElement(driver, _errorMessage, LocatorType.Xpath);
 		return PageUtility.getElementText(errorMessage);
 	}
 

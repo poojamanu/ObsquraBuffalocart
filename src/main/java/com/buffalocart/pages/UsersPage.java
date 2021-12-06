@@ -12,8 +12,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.buffalocart.utilities.HelperMethodUtility;
 import com.buffalocart.utilities.PageUtility;
 import com.buffalocart.utilities.TableUtility;
+import com.buffalocart.utilities.WaitUtility;
+import com.buffalocart.utilities.WaitUtility.LocatorType;
 
 public class UsersPage {
 	WebDriver driver;
@@ -34,10 +37,19 @@ public class UsersPage {
 	private final String _addUser = "a[class='btn btn-block btn-primary']";
 	@FindBy(css = _addUser)
 	private WebElement addUserButton;
+	
+	
 
-	private final String _usertable = "//table[@id='users_table']//tr//td";
+	
+	/*
+	 * private final String _usertable = "//table[@id='users_table']//tr//td";
+	 * 
+	 * @FindBy(xpath = _usertable) private List<WebElement> usertable;
+	 */
+	
+	private final String _usertable = "//table[@id='users_table']";
 	@FindBy(xpath = _usertable)
-	private List<WebElement> usertable;
+	private WebElement usertable;
 
 	private final String _rowItems = "//table[@id='users_table']//tbody//tr";
 	@FindBy(xpath = _rowItems)
@@ -54,6 +66,7 @@ public class UsersPage {
 	}
 
 	public void clickOnSearchBox() {
+		WaitUtility.waitForElementToBeClickable(driver, searchBox);
 		PageUtility.clickOnElement(searchBox);
 	}
 
@@ -67,24 +80,37 @@ public class UsersPage {
 	}
 
 	public List<ArrayList<String>> getUserTable() throws InterruptedException {
-		//PageUtility.HardWait();
+		WaitUtility.waitForElement(driver, _usertable, LocatorType.Xpath);
 		return TableUtility.getGridData(rowItems, columnItems);
 
 	}
 
 	public List<String> searchUserInfo(List<ArrayList<String>> table, String value) {
-		return PageUtility.searchForElementInTable(table, value);
+		return HelperMethodUtility.searchRow(table, value);
 	}
 	
 	public boolean isElementPresent(List<ArrayList<String>> table, String value) {
-		return PageUtility.isElementFound(table, value);
+		return HelperMethodUtility.isElementFound(table, value);
 	}
 	
 	public void applyHardWait() throws InterruptedException {
 		PageUtility.HardWait();
 	}
+	
+	
+	public void iselementLoaded(String value) {
+		WaitUtility.waitForElementToBePresent(driver, usertable, value);
+		
+	} 
+	
+	public void ScrollDown() {
+		PageUtility.ScrollBy(driver);
+	}
+	
+	
 
 	public UpdateUserPage clickOnEditButton(String user) throws InterruptedException {
+		//WaitUtility.waitForElement(driver, _usertable, LocatorType.Xpath);
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rowItems, columnItems);
 		OUTER: for (int i = 0; i < grid.size(); i++) {
 			for (int j = 0; j < grid.get(0).size(); j++) {
@@ -102,6 +128,7 @@ public class UsersPage {
 	}
 
 	public ViewUserPage clickOnViewButton(String user) {
+		WaitUtility.waitForElement(driver, _usertable, LocatorType.Xpath);
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rowItems, columnItems);
 		OUTER:for (int i = 0; i < grid.size(); i++) {
 			for (int j = 0; j < grid.get(0).size(); j++) {
@@ -120,6 +147,7 @@ public class UsersPage {
 	}
 	
 	public DeleteUserPage clickOnDeleteButton(String user) {
+		WaitUtility.waitForElement(driver, _usertable, LocatorType.Xpath);
 		List<ArrayList<WebElement>> grid = TableUtility.getActionDataWebTable(rowItems, columnItems);
 		OUTER:for (int i = 0; i < grid.size(); i++) {
 			for (int j = 0; j < grid.get(0).size(); j++) {
@@ -127,6 +155,7 @@ public class UsersPage {
 				
 				if (data.equals(user)) {
 					WebElement delete = driver.findElement(By.xpath("//table[@id='users_table']//tbody//tr["+(i+1)+"]//td[5]//button"));
+					//PageUtility.scrollToFindElement(driver, delete);
 					PageUtility.clickOnElement(delete);
 					break OUTER;
 				}

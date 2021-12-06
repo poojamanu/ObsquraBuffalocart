@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.buffalocart.utilities.PageUtility;
+import com.buffalocart.utilities.WaitUtility;
 
 public class DeleteAgentPage {
 	WebDriver driver;
@@ -26,7 +27,8 @@ public class DeleteAgentPage {
 	/*** UserActionMethods  ***/
 
 	public SalesCommissionAgentPage clickOnOkButton() {
-		PageUtility.scrollToFindElement(driver, OKbutton);
+		//PageUtility.scrollToFindElement(driver, OKbutton);
+		//WaitUtility.waitForElementToBeClickable(driver, OKbutton);
 		PageUtility.clickOnElement(OKbutton);
 		return new SalesCommissionAgentPage(driver);
 	}

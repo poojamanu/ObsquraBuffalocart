@@ -1,6 +1,9 @@
 package com.buffalocart.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,6 +49,10 @@ public class HomePage {
 	private final String _date = "//div[@class='m-8 pull-left mt-15 hidden-xs']/strong";
 	@FindBy(xpath = _date)
 	private WebElement date;
+	
+	private final String _toaster = "toast-container";
+	@FindBy(id = _toaster)
+	private WebElement toasterMessage;
 
 	/*** UserActionMethods ***/
 
@@ -67,12 +74,15 @@ public class HomePage {
 	}
 
 	public void isUserMenuLoaded() {
-		WaitUtility.waitForElementToBeClickable(driver, userMenu);		
+		
+		WaitUtility.waitForElementToBeClickable(driver, userMenu);			
+		
 		
 	}
 	
 	public SignOutPage clickOnUserMenu() {		
-		//WaitUtility.waitForElementToBeClickable(driver, userMenu);		
+		WaitUtility.waitForElementInvisible(driver, _toaster, LocatorType.Id);
+		PageUtility.scrollToFindElement(driver, userMenu);
 		PageUtility.clickOnElement(userMenu);
 		return new SignOutPage(driver);
 	}

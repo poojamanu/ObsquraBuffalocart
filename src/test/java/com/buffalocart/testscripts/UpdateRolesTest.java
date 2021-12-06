@@ -13,7 +13,10 @@ import com.aventstack.extentreports.ExtentTest;
 import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
 import com.buffalocart.listener.TestListener;
+import com.buffalocart.pages.AddRolesPage;
 import com.buffalocart.pages.AddUserPage;
+import com.buffalocart.pages.DeleteRolesPage;
+import com.buffalocart.pages.DeleteUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
 import com.buffalocart.pages.RolesPage;
@@ -35,6 +38,9 @@ public class UpdateRolesTest extends Base{
 	UsersPage users;
 	AddUserPage adduser;
 	UpdateRolesPage updateroles;	
+	AddRolesPage addrole;
+	DeleteUserPage deleteuser;
+	DeleteRolesPage deleterole;
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
@@ -42,16 +48,24 @@ public class UpdateRolesTest extends Base{
 	public void verifyEditRolesPageTitle() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		roles=usermanagement.clickOnRoleSubMenu();
+		addrole=roles.clickOnAddRoleButton();
+		addrole.enterRoleName("RoleTest");
+		addrole.clickOnUserPermissionSelectAllCheckbox();
+		addrole.clickOnCustomerPermissionSelectAllCheckbox();
+		roles=addrole.clickOnSaveButton();
 		updateroles=roles.clickOnEditRole("RoleTest")	;	
 		String actualTitle = updateroles.getUpdateRolesPageTitle();
 		String expectedTitle = "Edit Role - Reobeen HHC";
 		Assert.assertEquals(actualTitle, expectedTitle, "invalid Edit Role page title");
+		PageUtility.navigateToBack(driver);
+		deleterole=roles.clickOnDeleteRole("RoleTest");
+		roles=deleterole.clickOnOkButton();
 	}
 	
 	
@@ -59,51 +73,35 @@ public class UpdateRolesTest extends Base{
 	public void verifyEditRole() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
 		usermanagement = sidebar.clickOnUserManagement();
 		roles=usermanagement.clickOnRoleSubMenu();
+		roles=usermanagement.clickOnRoleSubMenu();
+		addrole=roles.clickOnAddRoleButton();
+		addrole.enterRoleName("RoleTest");
+		addrole.clickOnUserPermissionSelectAllCheckbox();
+		addrole.clickOnCustomerPermissionSelectAllCheckbox();
+		roles=addrole.clickOnSaveButton();
 		updateroles=roles.clickOnEditRole("RoleTest")	;	
 		updateroles.clearRoleName();
 		updateroles.editRoleName("Agent1");
 		//updateroles.editRolesPermissionSelectAllCheckbox();
 		roles=updateroles.clickOnUpdateButton();
-		PageUtility.HardWait();
+		roles.iselementLoaded("Agent1");
+		List<ArrayList<String>> rolestable=roles.getRolesTable();
+		Boolean actualStatus=roles.isElementPresent(rolestable, "Agent1");
+		Assert.assertTrue(actualStatus, "role not updated");
+		deleterole=roles.clickOnDeleteRole("Agent1");
+		roles=deleterole.clickOnOkButton();
+		//PageUtility.HardWait();
 		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
-		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
-		home = login.clickOnLoginButton();
-		sidebar = home.clickOnSidebar();
-		usermanagement = sidebar.clickOnUserManagement();
-		users = usermanagement.clickOnUsersSubMenu();
-		adduser = users.clickOnAddUserButton();
-		adduser.enterPrefix(ExcelUtility.getString(4, 0, Constants.EXCELFILE, "newuser"));
-		adduser.enterFirstname(ExcelUtility.getString(4, 1, Constants.EXCELFILE, "newuser"));
-		adduser.enterLastname(ExcelUtility.getString(4, 2, Constants.EXCELFILE, "newuser"));
-		adduser.enterEmail(ExcelUtility.getString(4, 3, Constants.EXCELFILE, "newuser"));
-		adduser.selectRole(ExcelUtility.getString(4, 4, Constants.EXCELFILE, "newuser"));
-		adduser.enterUsername(ExcelUtility.getString(4, 5, Constants.EXCELFILE, "newuser"));
-		adduser.enterPassword(ExcelUtility.getNumeric(4, 6, Constants.EXCELFILE, "newuser"));
-		adduser.enterconfirmPassword(ExcelUtility.getNumeric(4, 7, Constants.EXCELFILE, "newuser"));
-		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(4, 8, Constants.EXCELFILE, "newuser"));
-		users = adduser.clickOnSaveButton();
-		PageUtility.HardWait();
-		//home.isUserMenuLoaded();	
-		signout = home.clickOnUserMenu();
-		login = signout.clickOnSignoutButton();
-		login.enterUsername(ExcelUtility.getString(4, 5, Constants.EXCELFILE, "newuser"));
-		login.enterPassword(ExcelUtility.getNumeric(4, 6, Constants.EXCELFILE, "newuser"));
-		home = login.clickOnLoginButton();
-		sidebar = home.clickOnSidebar();
-		Boolean booleanStatus = home.verifyHomePageLogoDisplayed();
-		softAssert.assertTrue(booleanStatus, "Login failed");
-		signout = home.clickOnUserMenu();
-		login = signout.clickOnSignoutButton();
 		softAssert.assertAll();
+		
 	}
 
 	

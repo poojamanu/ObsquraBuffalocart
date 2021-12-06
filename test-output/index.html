@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,17 +104,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.AddSalesCommissionAgentTest" hash-for-method="verifyAddNewSalesCommissionAgent">verifyAddNewSalesCommissionAgent</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.AddRolesTest" hash-for-method="verifyAddNewRole">verifyAddNewRole</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.DeleteAgentTest" hash-for-method="verifyDeleteAgent">verifyDeleteAgent</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.UpdateAgentTest" hash-for-method="verifyEditSalesCommissionAgent">verifyEditSalesCommissionAgent</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.buffalocart.testscripts.AddRolesTest" hash-for-method="verifyAddRolesPageTitle">verifyAddRolesPageTitle</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -132,50 +127,25 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.buffalocart.testscripts.AddSalesCommissionAgentTest</span>
+              <span class="class-name">com.buffalocart.testscripts.AddRolesTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyAddNewSalesCommissionAgent">
-                  </a> <!-- verifyAddNewSalesCommissionAgent -->
-                  <span class="method-name">verifyAddNewSalesCommissionAgent</span>
+                  <a name="verifyAddNewRole">
+                  </a> <!-- verifyAddNewRole -->
+                  <span class="method-name">verifyAddNewRole</span>
                   <em>
-(TC_028_Verify user can add Sales Commission Agent)                  </em>
+(TC_022_Verify  user can add roles  )                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.buffalocart.testscripts.UpdateAgentTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyEditSalesCommissionAgent">
-                  </a> <!-- verifyEditSalesCommissionAgent -->
-                  <span class="method-name">verifyEditSalesCommissionAgent</span>
+                  <a name="verifyAddRolesPageTitle">
+                  </a> <!-- verifyAddRolesPageTitle -->
+                  <span class="method-name">verifyAddRolesPageTitle</span>
                   <em>
-(TC_029_Verify Edit sales agent details)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.buffalocart.testscripts.DeleteAgentTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyDeleteAgent">
-                  </a> <!-- verifyDeleteAgent -->
-                  <span class="method-name">verifyDeleteAgent</span>
-                  <em>
-(TC_030_Verify user can delete Sales Commission Agent )                  </em>
+(TC_021_Verify Add Roles page title)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -189,19 +159,17 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
+&lt;suite thread-count=&quot;2&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.buffalocart.listener.TestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
+  &lt;test thread-count=&quot;2&quot; name=&quot;ChromeTest&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.AddSalesCommissionAgentTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.UpdateAgentTest&quot;/&gt;
-      &lt;class name=&quot;com.buffalocart.testscripts.DeleteAgentTest&quot;/&gt;
+      &lt;class name=&quot;com.buffalocart.testscripts.AddRolesTest&quot;/&gt;
       &lt;class name=&quot;com.buffalocart.automationcore.Base&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
+  &lt;/test&gt; &lt;!-- ChromeTest --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -213,7 +181,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (4 classes)</span>
+                <span class="test-name">ChromeTest (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -239,24 +207,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyEditSalesCommissionAgent')
-data.setCell(0, 2, 'com.buffalocart.testscripts.UpdateAgentTest')
-data.setCell(0, 3, 44461);
+data.setCell(0, 1, 'verifyAddNewRole')
+data.setCell(0, 2, 'com.buffalocart.testscripts.AddRolesTest')
+data.setCell(0, 3, 60700);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyAddNewSalesCommissionAgent')
-data.setCell(1, 2, 'com.buffalocart.testscripts.AddSalesCommissionAgentTest')
-data.setCell(1, 3, 44397);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verifyDeleteAgent')
-data.setCell(2, 2, 'com.buffalocart.testscripts.DeleteAgentTest')
-data.setCell(2, 3, 38003);
+data.setCell(1, 1, 'verifyAddRolesPageTitle')
+data.setCell(1, 2, 'com.buffalocart.testscripts.AddRolesTest')
+data.setCell(1, 3, 51147);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -282,48 +246,30 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.buffalocart.testscripts.AddSalesCommissionAgentTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.buffalocart.testscripts.AddRolesTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyAddNewSalesCommissionAgent</span>
-                <span class="method-start">36351 ms</span>
+                <span class="method-name">verifyAddRolesPageTitle</span>
+                <span class="method-start">31334 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyAddNewSalesCommissionAgent status=SUCCESS method=AddSalesCommissionAgentTest....)</span>
-                <span class="method-start">80754 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyAddRolesPageTitle status=SUCCESS method=AddRolesTest.verifyAddRolesPageTitle(...)</span>
+                <span class="method-start">82511 ms</span>
               </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">com.buffalocart.testscripts.UpdateAgentTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(chrome)</span>
-                <span class="method-start">80849 ms</span>
+                <span class="method-start">82608 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyEditSalesCommissionAgent</span>
-                <span class="method-start">106430 ms</span>
+                <span class="method-name">verifyAddNewRole</span>
+                <span class="method-start">109321 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyEditSalesCommissionAgent status=SUCCESS method=UpdateAgentTest.verifyEditSale...)</span>
-                <span class="method-start">150894 ms</span>
-              </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">com.buffalocart.testscripts.DeleteAgentTest</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp(chrome)</span>
-                <span class="method-start">150993 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verifyDeleteAgent</span>
-                <span class="method-start">177654 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyDeleteAgent status=SUCCESS method=DeleteAgentTest.verifyDeleteAgent()[pri:30,...)</span>
-                <span class="method-start">215660 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyAddNewRole status=SUCCESS method=AddRolesTest.verifyAddNewRole()[pri:22, inst...)</span>
+                <span class="method-start">170024 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

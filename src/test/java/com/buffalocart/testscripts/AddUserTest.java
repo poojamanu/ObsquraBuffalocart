@@ -15,6 +15,7 @@ import com.buffalocart.automationcore.Base;
 import com.buffalocart.constants.Constants;
 import com.buffalocart.listener.TestListener;
 import com.buffalocart.pages.AddUserPage;
+import com.buffalocart.pages.DeleteUserPage;
 import com.buffalocart.pages.HomePage;
 import com.buffalocart.pages.LoginPage;
 import com.buffalocart.pages.SidebarPage;
@@ -32,6 +33,7 @@ public class AddUserTest extends Base {
 	UserManagementPage usermanagement;
 	UsersPage users;
 	AddUserPage adduser;
+	DeleteUserPage deleteuser;
 	SoftAssert softAssert = new SoftAssert();
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
@@ -39,7 +41,7 @@ public class AddUserTest extends Base {
 	public void verifyAddUsersPageTitle() throws IOException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
@@ -55,7 +57,7 @@ public class AddUserTest extends Base {
 	public void verifyAddUser() throws IOException, InterruptedException {
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();
@@ -72,12 +74,15 @@ public class AddUserTest extends Base {
 		adduser.enterconfirmPassword(ExcelUtility.getString(1, 7, Constants.EXCELFILE, "newuser"));
 		adduser.enterSalesCommissionPercentage(ExcelUtility.getNumeric(1, 8, Constants.EXCELFILE, "newuser"));
 		users = adduser.clickOnSaveButton();
-		PageUtility.HardWait();
 		List<ArrayList<String>> userTable=users.getUserTable();
 		List<String> actualRow=users.searchUserInfo(userTable, ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newuser"));
 		List<String> expectedRow = ExcelUtility.getRow(Constants.EXCELFILE, "userTable",1);
 		//List<String> expectedRow=Arrays.asList("andrews3","Mr andrew george","Support Staff","andrews2014@yahoo.com");
 		softAssert.assertEquals(actualRow, expectedRow,"User is not added");
+		users.ScrollDown();
+		deleteuser=users.clickOnDeleteButton(ExcelUtility.getString(1, 5, Constants.EXCELFILE, "newuser"));
+		users=deleteuser.clickOnOkButton();
+		//PageUtility.HardWait();
 		//home.isUserMenuLoaded();	
 		signout =home.clickOnUserMenu(); 
 		login = signout.clickOnSignoutButton();
@@ -90,7 +95,7 @@ public class AddUserTest extends Base {
 		extentTest.get().assignCategory("Regression");		
 		login = new LoginPage(driver);
 		login.enterUsername(ExcelUtility.getString(1, 0, Constants.EXCELFILE, "Login"));
-		login.enterPassword(ExcelUtility.getString(1, 1, Constants.EXCELFILE, "Login"));
+		login.enterPassword(ExcelUtility.getNumeric(1, 1, Constants.EXCELFILE, "Login"));
 		home = login.clickOnLoginButton();
 		home.clickEndTourButton();
 		sidebar = home.clickOnSidebar();

@@ -10,7 +10,7 @@ public class TableUtility {
 	public static List<ArrayList<String>> getGridData(List<WebElement> rowItems, List<WebElement> columnItems) {
 		int rowSize = rowItems.size();
 		int columnSize = columnItems.size();
-		int columnListSize = (columnSize / rowSize) - 1;
+		int columnListSize = (columnSize / rowSize) - 1; // -1 for excluding the last column user actions
 		String[] columnList = new String[columnListSize];
 		List<ArrayList<String>> gridData = new ArrayList<ArrayList<String>>();
 		int x = 0;
