@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.github.javafaker.Name;
 
 public class PageUtility {
-	public static void clickOnElement(WebElement element) {
+ 	public static void clickOnElement(WebElement element) {
 		element.click();
 	}
 
